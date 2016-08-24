@@ -53,6 +53,11 @@ public class Main_2_7_2 {
         System.out.println("Total circle area = "+sumCircleArea);
         System.out.println("Total triangle area = "+sumTriangleArea);
 
+        System.out.println("----------------------------------------------------------");
+        System.out.println("Total area = " + (Rectangle.area + Circle.area + Triangle.area));
+        System.out.println("Total rectangle area = " + Rectangle.area);
+        System.out.println("Total circle area = " + Circle.area);
+        System.out.println("Total triangle area = " + Triangle.area);
     }
 
 }
