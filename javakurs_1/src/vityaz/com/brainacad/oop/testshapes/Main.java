@@ -3,7 +3,7 @@ package vityaz.com.brainacad.oop.testshapes;
 
 public class Main {
     public static void main(String[] args){
-        //Shape
+        //Shapes
         Shape shape = new Shape("WHITE");
         System.out.println(shape.toString());
         System.out.println("Shape area is: " + shape.calcArea());
