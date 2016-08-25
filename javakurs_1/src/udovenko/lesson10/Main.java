@@ -68,6 +68,7 @@ public class Main {
                 case 2: myAir[i] = new Airfreighter(190, model);
                 break;
             }
+
             if (myAir[i] instanceof Airbus){
                 Airbus info = (Airbus)myAir[i];
                 info.setPassengerCapacity(150);
