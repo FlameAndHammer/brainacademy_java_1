@@ -2,7 +2,7 @@ package vityaz.com.brainacad.oop.testshapes;
 
 
 public class Shape {
-    private String color;
+    protected String color;
 
     public Shape(){
         this("black");

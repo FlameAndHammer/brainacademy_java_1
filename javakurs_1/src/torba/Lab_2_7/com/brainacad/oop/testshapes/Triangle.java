@@ -2,6 +2,8 @@ package torba.Lab_2_7.com.brainacad.oop.testshapes;
 
 public class Triangle extends Shape {
 
+    static double area = 0;
+
     private double a, b, c;
 
     public Triangle(String color, double a, double b, double c){
@@ -9,6 +11,7 @@ public class Triangle extends Shape {
         this.a = a;
         this.b = b;
         this.c = c;
+        area = area + calcArea();
     }
     //TODO use @Override
     public String toString(){
