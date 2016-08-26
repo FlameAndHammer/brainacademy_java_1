@@ -52,7 +52,7 @@ class Airfreighter extends Airplane {
     }
 }
 
-public class Main {
+public class Main1 {
     public static void main(String[] args) {
         Airplane[] myAir = new Airplane[5];
         for (int i = 0; i < 5; i++){
