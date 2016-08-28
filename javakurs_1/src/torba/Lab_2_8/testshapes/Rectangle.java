@@ -23,16 +23,18 @@ public class Rectangle extends Shape {
     }
 
     public Rectangle(String color, double width, double height){
-        setShapeColor(color); //TODO use super constructor
+        super(color); //TODO use super constructor
         this.width = width;
         this.height = height;
         area = area + calcArea();
     }
     //TODO use @Override
+    @Override
     public String toString(){
         return "This is Rectangle, color: " + getShapeColor() + ", width = " + width + ", height = " + height;
     }
     //TODO use @Override
+    @Override
     public double calcArea(){
         return width * height;
     }
