@@ -1,8 +1,9 @@
 package vityaz.com.brainacad.oop.testshapes;
 
 
-public class Shape {
+abstract public class Shape implements Drawable, Comparable<Shape>{
     protected String color;
+    private boolean c;
 
     public Shape(){
         this("black");
@@ -15,9 +16,18 @@ public class Shape {
         return "This is a Shape, color is: " + color;
     }
 
-    public double calcArea(){
-        double area = 0;
-        return area;
+    abstract public double calcArea();
+
+
+    public void draw(){
+        System.out.println(toString() + ", area is: " + calcArea());
     }
+
+    public int compareTo(Shape o){
+        if(this.calcArea() == o.calcArea()){return 0;}
+        else if(this.calcArea() < o.calcArea()){return -1;}
+        else return 1;
+    }
+
 
 }
