@@ -31,4 +31,5 @@ class Shape {
     public double calcArea() {                  //This method will be overriden
         return 0.0;                             //Each type of shapes has its own formula for calculating the area
     }
+
 }
