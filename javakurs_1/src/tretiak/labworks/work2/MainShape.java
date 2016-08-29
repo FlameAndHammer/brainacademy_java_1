@@ -9,15 +9,7 @@ public class MainShape {
             arr2[i].draw();
         }
         System.out.println();
-        for(int i = 0; i < arr2.length; i++){
-            for(int j = 0; j < arr2.length; j++){
-                Rectangle temp = arr2[i];
-                if (temp.compare(arr2[i], arr2[j]) == 2){
-                    arr2[i] = arr2[j];
-                    arr2[j] = temp;
-                }
-            }
-        }
+        Arrays.sort(arr2);
         for(int i = 0; i < arr2.length; i++){
             arr2[i].draw();
         }
