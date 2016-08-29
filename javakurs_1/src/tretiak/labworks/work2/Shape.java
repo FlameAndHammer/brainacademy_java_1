@@ -1,9 +1,11 @@
 package tretiak.labworks.work2;
 
+import java.security.cert.TrustAnchor;
+
 import static java.lang.StrictMath.sqrt;
 
 
-public abstract class Shape implements Drawable, Comparable{
+public abstract class Shape implements Drawable, Comparable, Cloneable{
     Shape(String shapeColor){
         this.shapeColor = shapeColor;
     }
@@ -75,6 +77,9 @@ class Rectangle extends Shape {
     public String toString() {
         return "This is Rectangle, color : " + getShapeColor() + ", width = " + width + ", height " + height;
     }
+    public Rectangle clone(){
+        return new Rectangle(getShapeColor(), width, height);
+    }
 }
 
 class Triangle extends Shape {
@@ -112,6 +117,9 @@ class Triangle extends Shape {
     }
     public String toString() {
         return "This is Triangle, color : " + getShapeColor() + ", a = " + a + ", b =" + b + ", c =" + c;
+    }
+    public Triangle clone(){
+        return new Triangle(getShapeColor(), a, b, c);
     }
 
 }
