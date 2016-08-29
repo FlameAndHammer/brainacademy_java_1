@@ -53,7 +53,7 @@ class Rectangle extends Shape implements Cloneable {
         }
 
         Rectangle rec = (Rectangle)obj;
-        if (width != rec.width || height != rec.height){
+        if (width != rec.width || height != rec.height || !getColorShape().equals(rec.getColorShape())){
             return false;
         }
 

@@ -56,12 +56,16 @@ public class PrintedHome implements Cloneable {
             System.out.println("ph1 != ph2");
         }
 
-        ph2.rectangle.setWidth(8.0);
+        //ph2.rectangle.setWidth(8.0);
+        ph2.rectangle.setColorShape("Green");
         System.out.println("With changes");
         if (ph1.equals(ph2)){
             System.out.println("ph1 == ph2");
         } else {
             System.out.println("ph1 != ph2");
         }
+
+        System.out.println("ph1:" + '\n' + ph1);
+        System.out.println("ph2:" + '\n' + ph2);
     }
 }

@@ -58,7 +58,7 @@ class Triangle extends Shape implements Cloneable {
         }
 
         Triangle trian = (Triangle) obj;
-        if (sideA != trian.sideA || sideB != trian.sideB || sideC != trian.sideC){
+        if (sideA != trian.sideA || sideB != trian.sideB || sideC != trian.sideC || !getColorShape().equals(trian.getColorShape())){
             return false;
         }
 

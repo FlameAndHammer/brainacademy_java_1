@@ -38,4 +38,12 @@ abstract class Shape {
         sumCircleArea = 0.0;
         sumTriangleArea = 0.0;
     }
+
+    public void setColorShape(String colorShape) {
+        this.colorShape = colorShape;
+    }
+
+    public String getColorShape() {
+        return colorShape;
+    }
 }
