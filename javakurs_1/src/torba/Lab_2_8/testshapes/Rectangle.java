@@ -6,6 +6,15 @@ public class Rectangle extends Shape {
 
     private double width, height;
 
+/*
+    public int compareTo(Object o){
+        Rectangle r = (Rectangle) o;
+        if (calcArea() > r.calcArea()) {return 1;}
+        else if (calcArea() < r.calcArea()) {return -1;}
+        else {return 0;}
+    }
+*/
+
     public void draw(){
         System.out.println(this+", area = "+calcArea());
     }
