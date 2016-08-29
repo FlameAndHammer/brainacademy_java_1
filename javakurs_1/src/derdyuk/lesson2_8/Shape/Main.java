@@ -2,7 +2,7 @@ package derdyuk.lesson2_8.Shape;
 
 public class Main{
         public static void main(String[]arg){
-            Shape shape = new Shape("Blue");
+            Shape shape = new Shape(new String("Blue"));
             System.out.println(shape.toString());
             System.out.println("Shape area is: " + shape.calcArea());
 
