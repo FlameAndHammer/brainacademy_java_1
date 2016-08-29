@@ -1,10 +1,14 @@
-package torba.Lab_2_7.com.brainacad.oop.testshapes;
+package torba.Lab_2_8.testshapes;
 
 public class Circle extends Shape {
 
     static double area = 0;
 
     private double radius;
+
+    public void draw(){
+        System.out.println(this+", area = "+calcArea());
+    }
 
     public Circle(String color, double radius){
         super(color);   //TODO use super constructor
@@ -21,6 +25,7 @@ public class Circle extends Shape {
     public double calcArea(){
         return Math.PI * radius * radius; //TODO use Math.PI
     }
+
 
 }
 
