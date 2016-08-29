@@ -59,6 +59,18 @@ class Rectangle extends Shape {
         this.width = width;
         this.height = height;
     }
+    public double getWidth(){
+        return width;
+    }
+    public double getHeight(){
+        return height;
+    }
+    public void setWidth(double width){
+        this.width = width;
+    }
+    public void setHeight(double height){
+        this.height = height;
+    }
     @Override
     public double calcArea(){
         return width * height;
@@ -77,6 +89,24 @@ class Triangle extends Shape {
         this.a = a;
         this.b = b;
         this.c = c;
+    }
+    public void setA(double a){
+        this.a = a;
+    }
+    public void setB(double b){
+        this.b = b;
+    }
+    public void setC(double c){
+        this.c = c;
+    }
+    public double getA(){
+        return a;
+    }
+    public double getB(){
+        return b;
+    }
+    public double getC(){
+        return c;
     }
     @Override
     public double calcArea(){
