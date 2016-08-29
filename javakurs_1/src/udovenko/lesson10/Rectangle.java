@@ -3,7 +3,7 @@ package udovenko.lesson10;
 /**
  * Created by gladi on 25.08.2016.
  */
-class Rectangle extends Shape {
+class Rectangle extends Shape implements Cloneable {
     //Add to class Rectangle a private field’s width and height (of double type)
     private double width;
     private double height;
@@ -34,6 +34,32 @@ class Rectangle extends Shape {
         return area;
     }
 
+    //Override the clone() method
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        Rectangle rectangle = (Rectangle) super.clone();
+        return rectangle;
+    }
+
+    //Override the equals() method
+    @Override
+    public boolean equals(Object obj){
+        if (this == obj){
+            return true;
+        }
+
+        if (obj == null || getClass() != obj.getClass()){
+            return false;
+        }
+
+        Rectangle rec = (Rectangle)obj;
+        if (width != rec.width || height != rec.height){
+            return false;
+        }
+
+        return true;
+    }
+
     //Getter counter
     public static int getCounter() {
         return counter;
@@ -44,4 +70,7 @@ class Rectangle extends Shape {
         counter = 0;
     }
 
+    public void setWidth(double width) {
+        this.width = width;
+    }
 }

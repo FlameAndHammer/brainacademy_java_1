@@ -3,7 +3,7 @@ package udovenko.lesson10;
 /**
  * Created by gladi on 25.08.2016.
  */
-class Shape {
+abstract class Shape {
     //declare private instance variable “shapeColor” of String type
     private String colorShape;
 
@@ -26,9 +26,7 @@ class Shape {
 
     /* All shapes must has a method called calcArea (), write public method (empty) calcArea
        that returns double value ( 0.0 )*/
-    public double calcArea(){
-        return 0.0;
-    }
+    public abstract double calcArea();
 
     //reset all counters in children class
     public static void resetCounter(){

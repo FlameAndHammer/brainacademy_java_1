@@ -9,9 +9,9 @@ import java.util.Random;
 public class MainShape {
     public static void main(String[] args) {
         //Lab Work 2-7-2
-        Shape sh1 = new Shape("Green");
+        /*Shape sh1 = new Shape("Green");
         System.out.println("This is " + sh1.toString());
-        System.out.println("Shape area is: " + sh1.calcArea());
+        System.out.println("Shape area is: " + sh1.calcArea());*/
 
         //Lab Work 2-7-3
         Circle cr1 = new Circle("Red", 10);
@@ -52,7 +52,7 @@ public class MainShape {
                             double[] sides = {100 * rnd.nextDouble(), 100 * rnd.nextDouble(), 0};
                             do {
                                 sides[2] = 100*rnd.nextDouble();
-                            } while (sides[2] >= sides[0] + sides[1]);
+                            } while (sides[0] >= sides[1] + sides[2] || sides[1] >= sides[2] + sides[0] || sides[2] >= sides[0] + sides[1]);
                             shapes[i] = new Triangle(colors[rnd.nextInt(5)], sides[0], sides[1], sides[2]);
                             i++;
                             break;
