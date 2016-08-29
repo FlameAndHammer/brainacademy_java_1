@@ -5,7 +5,7 @@ import static java.lang.Math.sqrt;
 /**
  * Created by gladi on 25.08.2016.
  */
-class Triangle extends Shape {
+class Triangle extends Shape implements Cloneable {
     //Add to class Triangle a private field’s a, b, c (of double type) which is sides of triangle.
     private double sideA;
     private double sideB;
@@ -37,6 +37,32 @@ class Triangle extends Shape {
         sumArea += area;
         sumTriangleArea += area;
         return area;
+    }
+
+    //Override the clone() method
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        Triangle triangle = (Triangle) super.clone();
+        return triangle;
+    }
+
+    //Override the equals() method
+    @Override
+    public boolean equals(Object obj){
+        if (this == obj){
+            return true;
+        }
+
+        if (obj == null || getClass() != obj.getClass()){
+            return false;
+        }
+
+        Triangle trian = (Triangle) obj;
+        if (sideA != trian.sideA || sideB != trian.sideB || sideC != trian.sideC){
+            return false;
+        }
+
+        return true;
     }
 
     //Getter counter

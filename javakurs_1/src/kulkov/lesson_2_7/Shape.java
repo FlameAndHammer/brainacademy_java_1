@@ -4,8 +4,17 @@ package kulkov.lesson_2_7;
  * Created by User on 24.08.2016.
  * Superclass which defines shapes in general
  */
-public class Shape {
+class Shape {
     private String shapeColor;
+    private static double sumArea = 0;
+
+    public static void setSumArea(double sumArea) {
+        Shape.sumArea = sumArea;
+    }
+
+    public static double getSumArea() {
+        return sumArea;
+    }
 
     public String getShapeColor() {             //Default getter
         return shapeColor;
@@ -22,4 +31,5 @@ public class Shape {
     public double calcArea() {                  //This method will be overriden
         return 0.0;                             //Each type of shapes has its own formula for calculating the area
     }
+
 }
