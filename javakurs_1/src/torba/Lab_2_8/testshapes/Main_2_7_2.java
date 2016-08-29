@@ -1,12 +1,14 @@
-package torba.Lab_2_7.com.brainacad.oop.testshapes;
+package torba.Lab_2_8.testshapes;
 
 public class Main_2_7_2 {
 
     public static void main(String[] args){
 
+/*
         Shape shape = new Shape("black");
         System.out.println("This is " + shape);
         System.out.println("Shape area is: " + shape.calcArea());
+*/
 
         Circle circle = new Circle("black", 10);
         System.out.println(circle);
@@ -44,9 +46,9 @@ public class Main_2_7_2 {
             area = el.calcArea();
             System.out.println("area is: "+area);
             sumArea = sumArea + area;
-            if (el instanceof Rectangle ){sumRectArea = sumRectArea + area;}
+            if (el instanceof Rectangle){sumRectArea = sumRectArea + area;}
             if (el instanceof Circle ){sumCircleArea = sumCircleArea + area;}
-            if (el instanceof Triangle ){sumTriangleArea = sumTriangleArea + area;}
+            if (el instanceof Triangle){sumTriangleArea = sumTriangleArea + area;}
         }
         System.out.println("Total area = "+sumArea);
         System.out.println("Total rectangle area = "+sumRectArea);
@@ -58,6 +60,13 @@ public class Main_2_7_2 {
         System.out.println("Total rectangle area = " + Rectangle.area);
         System.out.println("Total circle area = " + Circle.area);
         System.out.println("Total triangle area = " + Triangle.area);
+
+        //2.8.2
+        System.out.println("2.8.2---------------------------------------------------------");
+        for (Shape el : arr) {
+            el.draw();
+        }
+
     }
 
 }

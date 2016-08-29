@@ -1,10 +1,30 @@
-package torba.Lab_2_7.com.brainacad.oop.testshapes;
+package torba.Lab_2_8.testshapes;
 
 public class Triangle extends Shape {
 
     static double area = 0;
 
     private double a, b, c;
+
+    public void draw(){
+        System.out.println(this+", area = "+calcArea());
+    }
+
+    public double getA(){
+        return a;
+    }
+
+    public double getB(){
+        return b;
+    }
+
+    public double getC(){
+        return c;
+    }
+
+    public Triangle clone(){
+        return new Triangle(getShapeColor(), a, b, c);
+    }
 
     public Triangle(String color, double a, double b, double c){
         super(color); //TODO use super constructor
