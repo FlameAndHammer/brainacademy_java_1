@@ -10,14 +10,32 @@ public class Main {
     }
 
     public static void main(String[] args){
-        
+
         Shape [] arrayOfShapes = {new Circle(6), new Triangle("Yellow", 2, 6, 6),
                 new Rectangle("Green", 2, 3),new Circle("Brown", 11), new Rectangle("Blue", 7, 2),
                 new Rectangle("Grey", 25, 4), new Triangle("Pink", 3, 3, 3), new Rectangle(18, 19)};
 
+        double allShapesTotalArea = 0;
+        double circlesTotalArea = 0;
+        double rectanglesTotalArea = 0;
+        double trianglesTotalArea = 0;
+
         for(Shape arrayElement:arrayOfShapes){
             arrayElement.draw();
+            allShapesTotalArea += arrayElement.calcArea();
+            if(arrayElement instanceof Circle){
+                circlesTotalArea += arrayElement.calcArea();
+            }
+            else if(arrayElement instanceof Rectangle){
+                rectanglesTotalArea += arrayElement.calcArea();
+            }
+            else if(arrayElement instanceof Triangle){trianglesTotalArea += arrayElement.calcArea();}
         }
+        Main.goToNewLine();
+        System.out.println("All shapes total area is " + allShapesTotalArea);
+        System.out.println("All circles total area is " + circlesTotalArea);
+        System.out.println("All rectangles total area is " + rectanglesTotalArea);
+        System.out.println("All triangles total area is " + trianglesTotalArea);
         Main.goToNewLine();
 
         Shape rect1 = new Rectangle(12, 8);

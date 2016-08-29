@@ -3,7 +3,7 @@ package vityaz.com.brainacad.oop.testshapes;
 
 abstract public class Shape implements Drawable, Comparable<Shape>{
     protected String color;
-    private boolean c;
+    
 
     public Shape(){
         this("black");
