@@ -1,10 +1,26 @@
-package torba.Lab_2_7.com.brainacad.oop.testshapes;
+package torba.Lab_2_8.testshapes;
 
 public class Rectangle extends Shape {
 
     static double area = 0;
 
     private double width, height;
+
+    public void draw(){
+        System.out.println(this+", area = "+calcArea());
+    }
+
+    public double getWidth(){
+        return width;
+    }
+
+    public double getHeight(){
+        return height;
+    }
+
+    public Rectangle clone(){
+        return new Rectangle(getShapeColor(), width, height);
+    }
 
     public Rectangle(String color, double width, double height){
         super(color); //TODO use super constructor
