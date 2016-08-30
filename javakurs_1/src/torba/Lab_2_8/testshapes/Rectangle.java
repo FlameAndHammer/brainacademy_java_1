@@ -6,6 +6,16 @@ public class Rectangle extends Shape {
 
     private double width, height;
 
+    public static Object parseRectangle(String s){
+        String[] m = s.split(":");
+        switch (m[0]){
+            case "Rectangle":
+                {return new Rectangle(m[1], Double.parseDouble(m[2]), Double.parseDouble(m[3]));}
+            default:
+                {return new String("unknown object");}
+        }
+    }
+
 /*
     public int compareTo(Object o){
         Rectangle r = (Rectangle) o;

@@ -90,7 +90,35 @@ public class Main_2_7_2 {
             el.draw();
         }
 
+        //2.9.3, 2.9.4
+        System.out.println("2.9.3, 2.9.4---------------------------------------------------------");
 
+        System.out.println(Shape.parseShape("Rectangle:black:20:10"));
+        System.out.println(Shape.parseShape("Triangle:yellow:30:17:17"));
+        System.out.println(Shape.parseShape("Circle:green:10"));
+        System.out.println(Shape.parseShape("Abracadabra:black:10:10:10"));
+
+        //2.9.5
+        System.out.println("2.9.5---------------------------------------------------------");
+
+        System.out.println("Input array of shapes length");
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        int length = Integer.parseInt(sc.nextLine());
+
+        Object[] arr3 = new Object[length];
+        for (int i = 0; i < length; i++){
+            System.out.println("Input next shape");
+            arr3[i] = Shape.parseShape(sc.nextLine());
+        }
+
+        for (Object el : arr3){
+            if (el instanceof String){
+                System.out.println(el);
+            }
+            else{
+                ((Shape) el).draw();
+            }
+        }
 
 
 
