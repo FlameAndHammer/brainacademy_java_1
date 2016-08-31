@@ -30,7 +30,7 @@ class Rectangle extends Shape implements Comparable{
     //Override the toString() method.
     @Override
     public String toString(){
-        return  super.toString() + ", width = " + width + ", height = " + height;
+        return String.format("%s, width = %.2f, height = %.2f", super.toString(), width, height);
     }
 
     //Override the calcArea() method
@@ -97,6 +97,12 @@ class Rectangle extends Shape implements Comparable{
 
     @Override
     public void draw() {
-        System.out.println(toString() + ", area is: " + calcArea());
+        System.out.printf("%s, area is: %.2f\n", toString(), calcArea());
+    }
+
+    protected static Rectangle parseRectangle(String[] s){
+        String[] sides = s[2].split(",");
+        Rectangle rt = new Rectangle(s[1], Double.parseDouble(sides[0]), Double.parseDouble(sides[1]));
+        return rt;
     }
 }

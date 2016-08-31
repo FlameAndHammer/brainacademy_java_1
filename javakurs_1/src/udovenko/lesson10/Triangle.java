@@ -28,7 +28,7 @@ class Triangle extends Shape {
         Arrays.sort(sides);
         if (sides[2] >= (sides[0] + sides[1])){
             double dl = Shape.rndShape.nextDouble();
-            sides[2] = sides[1] + dl + (double) Shape.rndShape.nextInt((int)(sides[0] - dl));
+            sides[2] = sides[1] + dl + (double) Shape.rndShape.nextInt((int)(sides[0] - dl) + 1);
         }
 
         sideA = sides[0];
@@ -49,7 +49,8 @@ class Triangle extends Shape {
     //Override the toString() method.
     @Override
     public String toString(){
-        return  super.toString() + ", a = " + sideA + ", b = " + sideB + ", c = " + sideC;
+        //return  super.toString() + ", a = " + sideA + ", b = " + sideB + ", c = " + sideC;
+        return String.format("%s, a = %.2f, b = %.2f, c = %.2f", super.toString(), sideA, sideB, sideC);
     }
 
     //Override the calcArea() method
@@ -100,6 +101,13 @@ class Triangle extends Shape {
 
     @Override
     public void draw() {
-        System.out.println(toString() + ", area is: " + calcArea());
+        System.out.printf("%s, area is: %.2f\n", toString(), calcArea());
+    }
+
+    protected static Triangle parseTriangle(String[] s){
+        String[] sides = s[2].split(",");
+        Triangle tr = new Triangle(s[1], Double.parseDouble(sides[0]), Double.parseDouble(sides[1]),
+                Double.parseDouble(sides[2]));
+        return tr;
     }
 }
