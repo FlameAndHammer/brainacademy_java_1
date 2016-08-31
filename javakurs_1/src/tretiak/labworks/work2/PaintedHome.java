@@ -3,7 +3,7 @@ package tretiak.labworks.work2;
 
 import java.util.Objects;
 
-public class PaintedHome {
+public class PaintedHome implements Cloneable {
     private Triangle triangle;
     private Rectangle rectangle;
 
@@ -22,8 +22,8 @@ public class PaintedHome {
 
     @Override
     public PaintedHome clone() {
-        Rectangle tempRectangle = new Rectangle(rectangle.getShapeColor(), rectangle.getWidth(), rectangle.getHeight());
-        Triangle tempTriangle = new Triangle(triangle.getShapeColor(), triangle.getA(), triangle.getB(), triangle.getC());
+        Rectangle tempRectangle = rectangle.clone();
+        Triangle tempTriangle = triangle.clone();
         return new PaintedHome(tempTriangle, tempRectangle);
     }
 

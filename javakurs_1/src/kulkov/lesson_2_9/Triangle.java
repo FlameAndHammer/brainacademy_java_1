@@ -1,10 +1,10 @@
-package kulkov.lesson_2_8;
+package kulkov.lesson_2_9;
 
 /**
- * Created by User on 27.08.2016.
+ * Created by User on 31.08.2016.
  * A subclass of shapes defining triangles
  */
-class Triangle extends Shape implements Cloneable {                     //Triangle is subclass of Shape
+public class Triangle extends Shape implements Cloneable {              //Triangle is subclass of Shape
     private double a, b, c;
 
     public Triangle(String color, double a, double b, double c) {       //Triangles constructor
@@ -18,15 +18,26 @@ class Triangle extends Shape implements Cloneable {                     //Triang
     public String toString() {                                          //Override superclass method
         return "This is Triangle, color: " + getShapeColor() + ", a = " + a + ", b = " + b + ", c = " + c;
     }
+
     @Override
     public double calcArea() {                                          //Calculate the area for triangle
         double s = (a + b + c) / 2;
         return Math.sqrt(s * (s - a) * (s - b) * (s - c));
     }
+
+    public static Triangle parseTriangle(String s) {                    //Parse string to create triangle
+        String[] triangleData = s.split(":|,");                         //Separate the data
+        double a = Double.parseDouble(triangleData[1]);                 //Convert information about sides of triangle to double
+        double b = Double.parseDouble(triangleData[2]);
+        double c = Double.parseDouble(triangleData[3]);
+        return new Triangle(triangleData[0], a, b, c);                  //Call triangles constructor
+    }
+
     @Override
     public Triangle clone() throws CloneNotSupportedException{          //Override cloning method for Triangle instances
         return (Triangle) super.clone();                                //No need of a deep copy since object has no reference type fields
     }
+
     @Override
     public boolean equals(Object o) {                                   //Override the equality check
         if (this == o) {
@@ -38,6 +49,7 @@ class Triangle extends Shape implements Cloneable {                     //Triang
         Triangle triangle = (Triangle) o;
         return (a == triangle.a && b == triangle.b && c == triangle.c); //Check objects primitive fields for equality
     }
+
     @Override
     public int hashCode() {                                             //When you override equals() you also need to override hashCode()
         int result = 1;                                                 //Create hash code calculations using the fields of an object

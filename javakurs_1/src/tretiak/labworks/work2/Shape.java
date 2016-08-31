@@ -1,11 +1,11 @@
 package tretiak.labworks.work2;
 
-import jdk.nashorn.internal.runtime.SharedPropertyMap;
+import java.security.cert.TrustAnchor;
 
 import static java.lang.StrictMath.sqrt;
 
 
-public abstract class Shape implements Drawable, Comparable{
+public abstract class Shape implements Drawable, Comparable, Cloneable{
     Shape(String shapeColor){
         this.shapeColor = shapeColor;
     }
@@ -22,15 +22,14 @@ public abstract class Shape implements Drawable, Comparable{
     public void draw(){
         System.out.println(toString() +" area is: " + calcArea());
     }
-    public int compare(Shape firstShape, Shape secondShape){
-        if (firstShape.calcArea() > secondShape.calcArea()){
+    public int compareTo(Object o){
+        Shape shape2 = (Shape)o;
+        if(this.calcArea() > shape2.calcArea()){
             return 1;
-        } else if(firstShape.calcArea() < secondShape.calcArea()){
-
-            return 2;
-        }else {
-            return 0;
+        }else if(this.calcArea() < shape2.calcArea()){
+            return -1;
         }
+        return 0;
     }
 }
 
@@ -78,6 +77,9 @@ class Rectangle extends Shape {
     public String toString() {
         return "This is Rectangle, color : " + getShapeColor() + ", width = " + width + ", height " + height;
     }
+    public Rectangle clone(){
+        return new Rectangle(getShapeColor(), width, height);
+    }
 }
 
 class Triangle extends Shape {
@@ -115,6 +117,9 @@ class Triangle extends Shape {
     }
     public String toString() {
         return "This is Triangle, color : " + getShapeColor() + ", a = " + a + ", b =" + b + ", c =" + c;
+    }
+    public Triangle clone(){
+        return new Triangle(getShapeColor(), a, b, c);
     }
 
 }

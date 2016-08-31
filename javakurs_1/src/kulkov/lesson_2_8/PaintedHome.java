@@ -4,7 +4,7 @@ package kulkov.lesson_2_8;
  * Created by User on 28.08.2016.
  * Blueprint for creating a painted home
  */
-public class PaintedHome implements Cloneable{                      //Add cloneable interface to create copies of class instances
+class PaintedHome implements Cloneable{                             //Add cloneable interface to create copies of class instances
     private Rectangle walls;
     private Triangle roof;
 

@@ -67,6 +67,72 @@ public class Main_2_7_2 {
             el.draw();
         }
 
+        //2.8.3
+        System.out.println("2.8.3---------------------------------------------------------");
+        Rectangle r1 = new Rectangle("black",20, 10);
+        Rectangle r2 = new Rectangle("black",10, 5);
+        System.out.println(r1.compareTo(r2));
+
+        //2.8.4
+        System.out.println("2.8.4---------------------------------------------------------");
+        Rectangle[] arr2 = new Rectangle[6];
+
+        arr2[0] = new Rectangle("black", 60, 60);
+        arr2[1] = new Rectangle("black", 50, 50);
+        arr2[2] = new Rectangle("black", 40, 40);
+        arr2[3] = new Rectangle("black", 30, 30);
+        arr2[4] = new Rectangle("black", 20, 20);
+        arr2[5] = new Rectangle("black", 10, 10);
+
+        java.util.Arrays.sort(arr2);
+
+        for (Rectangle el : arr2){
+            el.draw();
+        }
+
+        //2.9.3, 2.9.4
+        System.out.println("2.9.3, 2.9.4---------------------------------------------------------");
+
+        System.out.println(Shape.parseShape("Rectangle:black:20:10"));
+        System.out.println(Shape.parseShape("Triangle:yellow:30:17:17"));
+        System.out.println(Shape.parseShape("Circle:green:10"));
+        System.out.println(Shape.parseShape("Abracadabra:black:10:10:10"));
+
+        //2.9.5
+        System.out.println("2.9.5---------------------------------------------------------");
+
+        System.out.println("Input array of shapes length");
+        java.util.Scanner sc = new java.util.Scanner(System.in);
+        int length = Integer.parseInt(sc.nextLine());
+
+        Object[] arr3 = new Object[length];
+        for (int i = 0; i < length; i++){
+            System.out.println("Input next shape");
+            arr3[i] = Shape.parseShape(sc.nextLine());
+        }
+
+        for (Object el : arr3){
+            if (el instanceof String){
+                System.out.println(el);
+            }
+            else{
+                ((Shape) el).draw();
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
 }

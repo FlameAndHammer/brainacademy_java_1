@@ -7,9 +7,9 @@ public class PrintedHome implements Cloneable {
     private Triangle triangle;
     private Rectangle rectangle;
 
-    public PrintedHome(double[] triangle, double[] rectangle){
-        this.triangle = new Triangle("Red", triangle[0], triangle[1], triangle[2]);
-        this.rectangle = new Rectangle("Red", rectangle[0], rectangle[1]);
+    public PrintedHome(){
+        this.triangle = new Triangle();
+        this.rectangle = new Rectangle();
     }
 
     @Override
@@ -46,7 +46,7 @@ public class PrintedHome implements Cloneable {
     }
 
     public static void main(String[] args) throws CloneNotSupportedException {
-        PrintedHome ph1 = new PrintedHome(new double[]{3, 5, 7}, new double[]{5, 7});
+        PrintedHome ph1 = new PrintedHome();
         PrintedHome ph2 = (PrintedHome) ph1.clone();
 
         System.out.println("Without changes");
@@ -57,11 +57,15 @@ public class PrintedHome implements Cloneable {
         }
 
         ph2.rectangle.setWidth(8.0);
+        ph2.rectangle.setColorShape("Green");
         System.out.println("With changes");
         if (ph1.equals(ph2)){
             System.out.println("ph1 == ph2");
         } else {
             System.out.println("ph1 != ph2");
         }
+
+        System.out.println("ph1:" + '\n' + ph1);
+        System.out.println("ph2:" + '\n' + ph2);
     }
 }

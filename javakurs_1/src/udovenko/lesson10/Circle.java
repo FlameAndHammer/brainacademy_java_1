@@ -13,8 +13,15 @@ class Circle extends Shape {
     //Add counter of objects
     private static int counter;
 
+    //Create a base class constructor with random "radius" generator
+    protected Circle(){
+        super();
+        radius = Shape.rndShape.nextDouble() * 100;
+        counter++;
+    }
+
     //Add to class Circle constructor with color and radius arguments.
-    public Circle(String color, double radius){
+    protected Circle(String color, double radius){
         super(color);
         this.radius = radius;
         counter++;
@@ -23,12 +30,12 @@ class Circle extends Shape {
     //Override the toString() method. It must return string which contain name of shape, color and radius of circle.
     @Override
     public String toString(){
-        return  super.toString() + ", radius = " + radius;
+        return String.format("%s, radius = %.2f", super.toString(), radius);
     }
 
     //Override calcArea() method
     @Override
-    public double calcArea(){
+    protected double calcArea(){
         double area = pow(radius, 2) * PI;
         sumArea += area;
         sumCircleArea += area;
@@ -36,12 +43,30 @@ class Circle extends Shape {
     }
 
     //Getter counter
-    public static int getCounter() {
+    protected static int getCounter() {
         return counter;
     }
 
     //Reset counter
-    public static void resetCounter(){
+    protected static void resetCounter(){
         counter = 0;
+    }
+
+    //Override the clone() method
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        Circle circle = (Circle) super.clone();
+        return circle;
+    }
+
+    @Override
+    public void draw() {
+        System.out.printf("%s, area is: %.2f\n", toString(), calcArea());
+
+    }
+
+    protected static Circle parseCircle(String[] s){
+        Circle cr = new Circle(s[1], Double.parseDouble(s[2]));
+        return cr;
     }
 }

@@ -1,11 +1,13 @@
 package udovenko.lesson10;
 
+import java.util.Arrays;
+
 import static java.lang.Math.sqrt;
 
 /**
  * Created by gladi on 25.08.2016.
  */
-class Triangle extends Shape implements Cloneable {
+class Triangle extends Shape {
     //Add to class Triangle a private field’s a, b, c (of double type) which is sides of triangle.
     private double sideA;
     private double sideB;
@@ -14,8 +16,29 @@ class Triangle extends Shape implements Cloneable {
     //Add counter of objects
     private static int counter;
 
+    //Create a base class constructor with random "sideA", "sideB", "sideC" generator
+    protected Triangle(){
+        super();
+        double[] sides = new double[3];
+        for (int i = 0; i < 3; i++){
+            sides[i] = Shape.rndShape.nextDouble() * 100;
+        }
+
+        //Check that the larger side is less than the sum of the other two. If not, we set new value of the larger side.
+        Arrays.sort(sides);
+        if (sides[2] >= (sides[0] + sides[1])){
+            double dl = Shape.rndShape.nextDouble();
+            sides[2] = sides[1] + dl + (double) Shape.rndShape.nextInt((int)(sides[0] - dl) + 1);
+        }
+
+        sideA = sides[0];
+        sideB = sides[1];
+        sideC = sides[2];
+        counter++;
+    }
+
     //Add to class Triangle constructor with color, a, b and c arguments.
-    public Triangle(String color, double sideA, double sideB, double sideC){
+    protected Triangle(String color, double sideA, double sideB, double sideC){
         super(color);
         this.sideA = sideA;
         this.sideB = sideB;
@@ -26,12 +49,13 @@ class Triangle extends Shape implements Cloneable {
     //Override the toString() method.
     @Override
     public String toString(){
-        return  super.toString() + ", a = " + sideA + ", b = " + sideB + ", c = " + sideC;
+        //return  super.toString() + ", a = " + sideA + ", b = " + sideB + ", c = " + sideC;
+        return String.format("%s, a = %.2f, b = %.2f, c = %.2f", super.toString(), sideA, sideB, sideC);
     }
 
     //Override the calcArea() method
     @Override
-    public double calcArea(){
+    protected double calcArea(){
         double s = (sideA + sideB + sideC) / 2;
         double area = sqrt(s * (s - sideA) * (s - sideB) * (s - sideC));
         sumArea += area;
@@ -41,7 +65,7 @@ class Triangle extends Shape implements Cloneable {
 
     //Override the clone() method
     @Override
-    public Object clone() throws CloneNotSupportedException {
+    protected Object clone() throws CloneNotSupportedException {
         Triangle triangle = (Triangle) super.clone();
         return triangle;
     }
@@ -66,12 +90,24 @@ class Triangle extends Shape implements Cloneable {
     }
 
     //Getter counter
-    public static int getCounter() {
+    protected static int getCounter() {
         return counter;
     }
 
     //reset counter
-    public static void resetCounter(){
+    protected static void resetCounter(){
         counter = 0;
+    }
+
+    @Override
+    public void draw() {
+        System.out.printf("%s, area is: %.2f\n", toString(), calcArea());
+    }
+
+    protected static Triangle parseTriangle(String[] s){
+        String[] sides = s[2].split(",");
+        Triangle tr = new Triangle(s[1], Double.parseDouble(sides[0]), Double.parseDouble(sides[1]),
+                Double.parseDouble(sides[2]));
+        return tr;
     }
 }

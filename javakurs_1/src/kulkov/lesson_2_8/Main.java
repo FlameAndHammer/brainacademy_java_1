@@ -6,7 +6,7 @@ import java.util.Arrays;
  * Created by User on 27.08.2016.
  * Practice using inheritance, polymorphism and abstraction
  */
-public class Main {
+class Main {
     public static void main(String[]args) throws CloneNotSupportedException {
         Shape[] arr = new Shape[6];                         //Create an array of different shapes
         arr[0] = new Circle("YELLOW", 3.5);
@@ -21,11 +21,11 @@ public class Main {
         System.out.println();                               //adding this for results readability
         Rectangle biggerRect = new Rectangle("WHITE", 15, 20);
         Rectangle smallerRect = new Rectangle("BLACK", 6, 9);
-        System.out.println(biggerRect.compareTo(smallerRect) + "" + '\n');  //Compare the areas of a specified rectangles
+        System.out.println(smallerRect.compareTo(biggerRect) + "" + '\n');  //Compare the areas of a specified rectangles
 
         Rectangle[] arr2 = {new Rectangle("RED", 13, 8), new Rectangle("RED", 5, 24), new Rectangle("RED", 10, 10),
                 new Rectangle("RED", 9, 15), new Rectangle("RED", 12, 14), new Rectangle("RED", 7, 19)};
-        Arrays.sort(arr2);                                  //Sort rectangles in the array
+        Arrays.sort(arr2, new ShapeAreaComparator());       //Sort rectangles in the array
         for (Rectangle r: arr2) {
             r.draw();                                       //Print their info to console
         }
