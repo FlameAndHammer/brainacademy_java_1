@@ -6,6 +6,26 @@ public class Triangle extends Shape {
 
     private double a, b, c;
 
+    public static Object parseTriangle(String s){
+        String[] m = s.split(":");
+        switch (m[0]){
+            case "Triangle":
+                {return new Triangle(m[1], Double.parseDouble(m[2]), Double.parseDouble(m[3]), Double.parseDouble(m[4]));}
+            default:
+                {return new String("unknown object");}
+        }
+    }
+
+
+/*
+    public int compareTo(Object o){
+        Rectangle r = (Rectangle) o;
+        if (calcArea() > r.calcArea()) {return 1;}
+        else if (calcArea() < r.calcArea()) {return -1;}
+        else {return 0;}
+    }
+*/
+
     public void draw(){
         System.out.println(this+", area = "+calcArea());
     }
