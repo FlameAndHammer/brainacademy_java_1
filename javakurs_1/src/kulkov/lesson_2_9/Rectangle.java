@@ -1,10 +1,10 @@
-package kulkov.lesson_2_8;
+package kulkov.lesson_2_9;
 
 /**
- * Created by User on 27.08.2016.
+ * Created by User on 31.08.2016.
  * A subclass of shapes defining rectangles
  */
-class Rectangle extends Shape implements Cloneable {                    //Rectangle is subclass of Shape
+public class Rectangle extends Shape implements Cloneable {             //Rectangle is subclass of Shape
     private double width;
     private double height;
 
@@ -18,14 +18,24 @@ class Rectangle extends Shape implements Cloneable {                    //Rectan
     public String toString() {                                          //Override superclass method
         return "This is Rectangle, color: " + getShapeColor() + ", width = " + width + ", height = " + height;
     }
+
     @Override
-    public double calcArea() {                                              //Calculate the area for rectangle
+    public double calcArea() {                                          //Calculate the area for rectangle
         return width * height;
     }
+
+    public static Rectangle parseRectangle(String s) {                  //Parse string to create rectangle
+        String[] rectangleData = s.split(":|,");                        //Separate the data
+        double width = Double.parseDouble(rectangleData[1]);            //Convert information about sides of rectangle to double
+        double height = Double.parseDouble(rectangleData[2]);
+        return new Rectangle(rectangleData[0], width, height);          //Call rectangles constructor
+    }
+
     @Override
     public Rectangle clone() throws CloneNotSupportedException{         //Override cloning method for Rectangle instances
         return (Rectangle) super.clone();                               //No need of a deep copy since object has no reference type fields
     }
+
     @Override
     public boolean equals(Object o) {                                   //Override the equality check
         if (this == o) {
@@ -37,6 +47,7 @@ class Rectangle extends Shape implements Cloneable {                    //Rectan
         Rectangle rect = (Rectangle) o;
         return (width == rect.width && height == rect.height);          //Check objects primitive fields for equality
     }
+
     @Override
     public int hashCode() {                                             //When you override equals() you also need to override hashCode()
         int result = 1;                                                 //Create hash code calculations using the fields of an object
