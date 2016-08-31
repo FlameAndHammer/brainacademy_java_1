@@ -3,7 +3,7 @@ package udovenko.lesson10;
 /**
  * Created by gladi on 25.08.2016.
  */
-class Rectangle extends Shape implements Cloneable {
+class Rectangle extends Shape implements Comparable{
     //Add to class Rectangle a private field’s width and height (of double type)
     private double width;
     private double height;
@@ -11,8 +11,16 @@ class Rectangle extends Shape implements Cloneable {
     //Add counter of objects
     private static int counter;
 
+    //Create a base class constructor with random "width", "height" generator
+    protected Rectangle(){
+        super();
+        width = Shape.rndShape.nextDouble() * 100;
+        height = Shape.rndShape.nextDouble() * 100;
+        counter++;
+    }
+
     //Add to class Rectangle constructor with color , width and height arguments.
-    public Rectangle(String color, double width, double height){
+    protected Rectangle(String color, double width, double height){
         super(color);
         this.width = width;
         this.height = height;
@@ -27,7 +35,7 @@ class Rectangle extends Shape implements Cloneable {
 
     //Override the calcArea() method
     @Override
-    public double calcArea(){
+    protected double calcArea(){
         double area = width * height;
         sumArea += area;
         sumRectArea += area;
@@ -36,7 +44,7 @@ class Rectangle extends Shape implements Cloneable {
 
     //Override the clone() method
     @Override
-    public Object clone() throws CloneNotSupportedException {
+    protected Object clone() throws CloneNotSupportedException {
         Rectangle rectangle = (Rectangle) super.clone();
         return rectangle;
     }
@@ -53,7 +61,7 @@ class Rectangle extends Shape implements Cloneable {
         }
 
         Rectangle rec = (Rectangle)obj;
-        if (width != rec.width || height != rec.height || !getColorShape().equals(rec.getColorShape())){
+        if (width != rec.width || height != rec.height){
             return false;
         }
 
@@ -61,16 +69,34 @@ class Rectangle extends Shape implements Cloneable {
     }
 
     //Getter counter
-    public static int getCounter() {
+    protected static int getCounter() {
         return counter;
     }
 
     //Reset counter
-    public static void resetCounter(){
+    protected static void resetCounter(){
         counter = 0;
     }
 
-    public void setWidth(double width) {
+    protected void setWidth(double width) {
         this.width = width;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Rectangle rec = (Rectangle) o;
+        if (this.calcArea() < rec.calcArea()){
+            return -1;
+        }
+
+        if (this.calcArea() > rec.calcArea()){
+            return 1;
+        }
+        return 0;
+    }
+
+    @Override
+    public void draw() {
+        System.out.println(toString() + ", area is: " + calcArea());
     }
 }
