@@ -24,4 +24,9 @@ public class Rectangle extends Shape{
     public double calcArea(){
         return width * height;
     }
+
+    public static Rectangle parseRectangle(String string){
+        String[] array = string.split("\\W");
+        return new Rectangle(array[1], Double.parseDouble(array[2]), Double.parseDouble(array[3]));
+    }
 }
