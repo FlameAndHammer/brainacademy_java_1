@@ -1,4 +1,4 @@
-package torba.Lab_2_9.com.brainacad.oop.testwrapper.com.brainacad.oop.testwrapper2;
+package torba.Lab_2_9.com.brainacad.oop.testwrapper2;
 
 public class Main {
 

@@ -1,4 +1,6 @@
-package torba.lesson_31_08_16.com.brainacad.oop.testexcp1;
+package torba.Lab_2_11;
+
+import torba.Lab_2_11.MyException;
 
 public class Main {
 
