@@ -20,6 +20,8 @@ public class Circle extends Shape{
         return  Math.PI * radius * radius;
     }
 
-
-
+    public static Circle parseCircle(String string){
+        String[] array = string.split("\\W");
+        return new Circle(array[1], Double.parseDouble(array[2]));
+    }
 }
