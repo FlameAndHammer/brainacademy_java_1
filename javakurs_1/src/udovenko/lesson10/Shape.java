@@ -91,7 +91,7 @@ abstract class Shape implements Cloneable, Drawable{
    //Lab Work 2-10-4
    protected static Shape purseShape(String s) throws InvalidShapeStringException {
        //Lab Work 2-11-4
-       Pattern pt = Pattern.compile("^(\\w+[:]){2}\\d+([,]\\d+)*");
+       Pattern pt = Pattern.compile("^\\p{Upper}\\p{Alpha}+[:]\\p{Alpha}+[:]\\d+([,]\\d+)*");
        Matcher matcher = pt.matcher(s);
        if (!matcher.matches()){
            throw new InvalidShapeStringException("Invalid input string");

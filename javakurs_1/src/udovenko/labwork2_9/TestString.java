@@ -77,7 +77,7 @@ public class TestString {
         System.out.println(myStr.indexOf("ra"));
         System.out.println(myStr.lastIndexOf("ra"));
         try {
-            System.out.println(new String(myStr.substring(3, 11)));
+            System.out.println(new String(myStr.substring(3, 8)));
         }catch (StringIndexOutOfBoundsException siobe) {
             System.out.println("Invalid indexes of substring");
         }

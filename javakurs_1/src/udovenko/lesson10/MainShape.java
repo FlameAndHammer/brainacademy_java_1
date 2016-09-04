@@ -152,6 +152,8 @@ public class MainShape {
                 shapeScan[j] = Shape.purseShape(sc.next());
             }catch (InvalidShapeStringException e){
                 System.out.println(e.getMessage());
+                System.out.println("Try again");
+                j--;
             }
         }
 
