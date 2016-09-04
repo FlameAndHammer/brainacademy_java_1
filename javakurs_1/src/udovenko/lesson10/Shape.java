@@ -3,6 +3,7 @@ package udovenko.lesson10;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Random;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -25,7 +26,7 @@ abstract class Shape implements Cloneable, Drawable{
     protected Shape(){
         Colors[] colors = Colors.values();
         colorShape = colors[rndShape.nextInt(colors.length)].toString();
-    }
+     }
 
     // create a constructor for Shape with shapeColor parameter
     protected Shape(String colorShape) {
@@ -59,7 +60,7 @@ abstract class Shape implements Cloneable, Drawable{
         this.colorShape = colorShape;
     }
 
-    //Lab Work 2-9-3
+    //Lab Work 2-10-3
    /*protected static Shape purseShape(String s){
        String[] param = s.split(":");
        String shapeName = param[0];
@@ -87,26 +88,30 @@ abstract class Shape implements Cloneable, Drawable{
        }
    }*/
 
-   //Lab Work 2-9-4
-   protected static Shape purseShape(String s){
-       String[] param = s.split(":");
-       String shapeName = param[0];
+   //Lab Work 2-10-4
+   protected static Shape purseShape(String s) throws InvalidShapeStringException {
+       //Lab Work 2-11-4
+       Pattern pt = Pattern.compile("^(\\w+[:]){2}\\d+([,]\\d+)*");
+       Matcher matcher = pt.matcher(s);
+       if (!matcher.matches()){
+           throw new InvalidShapeStringException("Invalid input string");
+       }
+
+       String[] params = s.split(":", 2);
+       String shapeName = params[0];
        switch (shapeName){
            case "Circle":{
-               Circle cr = Circle.parseCircle(param);
-               return cr;
+               return Circle.parseCircle(params[1]);
+
            }
            case "Rectangle": {
-               Rectangle rt = Rectangle.parseRectangle(param);
-               return rt;
+               return Rectangle.parseRectangle(params[1]);
            }
            case "Triangle": {
-               Triangle tr = Triangle.parseTriangle(param);
-               return tr;
+               return Triangle.parseTriangle(params[1]);
            }
            default:{
-               System.out.println("Invalid shape name");
-               return new Circle("NULL", 0.0);
+               throw new InvalidShapeStringException("Invalid shape name"); //Lab Work 2-11-4
            }
        }
    }

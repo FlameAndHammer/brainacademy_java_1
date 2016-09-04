@@ -100,9 +100,10 @@ class Rectangle extends Shape implements Comparable{
         System.out.printf("%s, area is: %.2f\n", toString(), calcArea());
     }
 
-    protected static Rectangle parseRectangle(String[] s){
-        String[] sides = s[2].split(",");
-        Rectangle rt = new Rectangle(s[1], Double.parseDouble(sides[0]), Double.parseDouble(sides[1]));
+    protected static Rectangle parseRectangle(String s){
+        String[] params = s.split(":");
+        String[] sides = params[1].split(",");
+        Rectangle rt = new Rectangle(params[0], Double.parseDouble(sides[0]), Double.parseDouble(sides[1]));
         return rt;
     }
 }

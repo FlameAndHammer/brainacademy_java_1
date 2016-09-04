@@ -65,8 +65,15 @@ class Circle extends Shape {
 
     }
 
-    protected static Circle parseCircle(String[] s){
-        Circle cr = new Circle(s[1], Double.parseDouble(s[2]));
+    protected static Circle parseCircle(String s){
+        String[] params = s.split(":");
+        Circle cr;
+        try {                                                           //Lab Work 2-11-4
+            cr = new Circle(params[0], Double.parseDouble(params[1]));
+        }catch (NumberFormatException nfe){
+            String[] radii = params[1].split(",");
+            cr = new Circle(params[0], Double.parseDouble(radii[0]));
+        }
         return cr;
     }
 }

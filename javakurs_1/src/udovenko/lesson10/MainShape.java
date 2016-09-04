@@ -2,14 +2,14 @@ package udovenko.lesson10;
 
 
 import java.util.Arrays;
-import java.util.Random;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
  * Created by gladi on 25.08.2016.
  */
 public class MainShape {
-    public static void main(String[] args) {
+    public static void main(String[] args){
         //Lab Work 2-7-2
         /*Shape sh1 = new Shape("Green");
         System.out.println("This is " + sh1.toString());
@@ -65,10 +65,10 @@ public class MainShape {
             element.draw();
         }
 
-        System.out.println("sumArea = " + Shape.sumArea);
-        System.out.println("sumRectArea = " + Shape.sumRectArea);
-        System.out.println("sumCircleArea = " + Shape.sumCircleArea);
-        System.out.println("sumTriangleArea = " + Shape.sumTriangleArea);
+        System.out.printf("sumArea = %.2f\n", Shape.sumArea);
+        System.out.printf("sumRectArea = %.2f\n", Shape.sumRectArea);
+        System.out.printf("sumCircleArea = %.2f\n", Shape.sumCircleArea);
+        System.out.printf("sumTriangleArea = %.2f\n", Shape.sumTriangleArea);
 
         //Lab Work 2-8-3
         System.out.println("Compare to rectangle:");
@@ -108,24 +108,51 @@ public class MainShape {
             elem.draw();
         }
 
-        //Lab Work 2-9-3, 2-9-4
+        //Lab Work 2-10-3, 2-10-4
         System.out.println("Create Circle");
-        System.out.println(Shape.purseShape("Circle:RED:15"));
+        try {
+            System.out.println(Shape.purseShape("Circle:RED:15"));
+        }catch (InvalidShapeStringException e){
+            System.out.println(e.getMessage());
+        }
 
         System.out.println("Create Rectangle");
-        System.out.println(Shape.purseShape("Rectangle:GREEN:10,12"));
+        try {
+            System.out.println(Shape.purseShape("Rectangle:GREEN:10,12"));
+        }catch (InvalidShapeStringException e){
+            System.out.println(e.getMessage());
+        }
 
         System.out.println("Create Triangle");
-        System.out.println(Shape.purseShape("Triangle:PLUM:12,15,25"));
+        try {
+            System.out.println(Shape.purseShape("Triangle:PLUM:12,15,25"));
+        }catch (InvalidShapeStringException e){
+            System.out.println(e.getMessage());
+        }
 
-        //Lab Work 2-9-5
+        //Lab Work 2-10-5
         Scanner sc = new Scanner(System.in);
-        System.out.println("Input count of shape");
-        int count = sc.nextInt();
+        int count = 0;
+        do {
+            try {                                               //Lab Work 2-11-4
+                System.out.println("Input count of shapes");
+                count = sc.nextInt();
+                if (count < 1)
+                    System.out.printf("Unable to out %d shapes\n", count);
+            }catch (InputMismatchException ime){
+                System.out.println("Invalid input");
+                sc = new Scanner(System.in);
+            }
+        }while (count < 1);
+
         System.out.println("Input shapes");
         Shape[] shapeScan = new Shape[count];
         for (int j = 0; j < count; j++){
-            shapeScan[j] = Shape.purseShape(sc.next());
+            try {                                           //Lab Work 2-11-4
+                shapeScan[j] = Shape.purseShape(sc.next());
+            }catch (InvalidShapeStringException e){
+                System.out.println(e.getMessage());
+            }
         }
 
         for (Shape element: shapeScan){
