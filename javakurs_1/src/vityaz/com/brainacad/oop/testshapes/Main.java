@@ -12,12 +12,6 @@ public class Main {
     private static void goToNewLine(){
         System.out.println();
     }
-    //method to verify compliance with the input line pattern
-    private static boolean checkShape(String string){
-        Pattern p = Pattern.compile("(((R|r)ectangle)|((T|t)riangle)|((C|c)ircle))\\W\\w*\\W\\d+(\\W\\d+(\\W\\d+)?)?");
-        Matcher m = p.matcher(string);
-        return m.matches();
-    }
 
     public static void main(String[] args) {
         //create eight instances of shape type
@@ -85,16 +79,20 @@ public class Main {
         String[] arrOfShapes = new String[n];
         for (int i = 0; i < arrOfShapes.length; i++) {
             while (true) {
-                System.out.println("describe the shape");
-                Scanner scanner = new Scanner(System.in);
-                String string = scanner.nextLine();
-                if (Main.checkShape(string)) {
-                    arrOfShapes[i] = string;
-                    break;
+                try{
+                    System.out.println("describe the shape");
+                    Scanner scanner = new Scanner(System.in);
+                    String string = scanner.nextLine();
+                    if (Shape.checkShape(string)) {
+                        arrOfShapes[i] = string;
+                        break;
+                    }
+                    throw new InvalidShapeStringException();
                 }
-                System.out.println("wrong describe");
+                catch (InvalidShapeStringException ex){
+                    System.out.println(ex.getMessage());
+                }
             }
-
         }
 
         for (String arrElement : arrOfShapes) {
