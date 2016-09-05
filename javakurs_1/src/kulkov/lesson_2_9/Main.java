@@ -6,7 +6,7 @@ import java.util.Scanner;
  * Created by User on 31.08.2016.
  * Practice using strings
  */
-public class Main {
+class Main {
     public static void main(String[]args) {
         //Create a few shapes using string parsing
         System.out.println(Shape.parseShape("Rectangle:RED:10,20"));
