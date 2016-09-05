@@ -93,10 +93,22 @@ public class Main_2_7_2 {
         //2.9.3, 2.9.4
         System.out.println("2.9.3, 2.9.4---------------------------------------------------------");
 
-        System.out.println(Shape.parseShape("Rectangle:black:20:10"));
-        System.out.println(Shape.parseShape("Triangle:yellow:30:17:17"));
-        System.out.println(Shape.parseShape("Circle:green:10"));
-        System.out.println(Shape.parseShape("Abracadabra:black:10:10:10"));
+        try {
+            System.out.println(Shape.parseShape("Rectangle:black:20:10"));
+        }
+        catch (Exception e) {}
+        try {
+            System.out.println(Shape.parseShape("Triangle:yellow:30:17:17"));
+        }
+        catch (Exception e) {}
+        try {
+            System.out.println(Shape.parseShape("Circle:green:10"));
+        }
+        catch (Exception E) {}
+        try {
+            System.out.println(Shape.parseShape("Abracadabra:black:10:10:10"));
+        }
+        catch (Exception e) {}
 
         //2.9.5
         System.out.println("2.9.5---------------------------------------------------------");
@@ -108,7 +120,14 @@ public class Main_2_7_2 {
         Object[] arr3 = new Object[length];
         for (int i = 0; i < length; i++){
             System.out.println("Input next shape");
-            arr3[i] = Shape.parseShape(sc.nextLine());
+            try {
+                arr3[i] = Shape.parseShape(sc.nextLine());
+            }
+            catch (Exception e) {
+                System.out.print(e.getMessage());
+                System.out.println(", try again");
+                i--;
+            }
         }
 
         for (Object el : arr3){
@@ -119,12 +138,6 @@ public class Main_2_7_2 {
                 ((Shape) el).draw();
             }
         }
-
-
-
-
-
-
 
 
 
