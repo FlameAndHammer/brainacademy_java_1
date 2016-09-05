@@ -17,7 +17,7 @@ public class Main {
     public static void main(String[] args){
 
         //assert compute(new Byte((byte) 5), new Integer(200)) instanceof Long : "Incorrect type"; //??
-        assert compute(new Byte((byte) 5), new Integer(200)).getClass().toString().equals("class java.lang.Long") :
+        assert compute(new Byte((byte) 5), new Integer(200)).getClass().equals(Long.class) :
                 "Incorrect type";
         System.out.println(compute(new Byte((byte) 5), new Integer(200)));
 
