@@ -30,7 +30,7 @@ class Circle extends Shape {
     //Override the toString() method. It must return string which contain name of shape, color and radius of circle.
     @Override
     public String toString(){
-        return  super.toString() + ", radius = " + radius;
+        return String.format("%s, radius = %.2f", super.toString(), radius);
     }
 
     //Override calcArea() method
@@ -61,6 +61,19 @@ class Circle extends Shape {
 
     @Override
     public void draw() {
-        System.out.println(toString() + ", area is: " + calcArea());
+        System.out.printf("%s, area is: %.2f\n", toString(), calcArea());
+
+    }
+
+    protected static Circle parseCircle(String s){
+        String[] params = s.split(":");
+        Circle cr;
+        try {                                                           //Lab Work 2-11-4
+            cr = new Circle(params[0], Double.parseDouble(params[1]));
+        }catch (NumberFormatException nfe){
+            String[] radii = params[1].split(",");
+            cr = new Circle(params[0], Double.parseDouble(radii[0]));
+        }
+        return cr;
     }
 }

@@ -25,6 +25,10 @@ public class Triangle extends Shape{
     public double calcArea(){
         double s = (a + b + c) / 2;
         return Math.sqrt(s * (s - a) * (s - b) * (s - c));
+    }
 
+    public static Triangle parseTriangle(String string){
+        String[] array = string.split("\\W");
+        return new Triangle(array[1], Double.parseDouble(array[2]), Double.parseDouble(array[3]), Double.parseDouble(array[4]));
     }
 }

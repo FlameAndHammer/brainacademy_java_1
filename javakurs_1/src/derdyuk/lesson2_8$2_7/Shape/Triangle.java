@@ -1,9 +1,9 @@
-package derdyuk.lesson2_8.Shape;
+package derdyuk.lesson2_8$2_7.Shape;
 
 /**
  * Created by maossi on 26.08.2016.
  */
-public class Triangle extends Shape {
+public class Triangle extends Shape implements Drawable {
     private double a;
     private double b;
     private double c;
@@ -26,4 +26,6 @@ public class Triangle extends Shape {
         return Math.sqrt(s* (s-a)*(s-b)*(s-c));
 
     }
+
+
 }

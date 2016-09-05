@@ -23,14 +23,15 @@ class Triangle extends Shape {
         for (int i = 0; i < 3; i++){
             sides[i] = Shape.rndShape.nextDouble() * 100;
         }
-
-        //Check that the larger side is less than the sum of the other two. If not, we set new value of the larger side.
         Arrays.sort(sides);
-        if (sides[2] >= (sides[0] + sides[1])){
-            double dl = Shape.rndShape.nextDouble();
-            sides[2] = sides[1] + dl + (double) Shape.rndShape.nextInt((int)(sides[0] - dl));
+        while (sides[2] >= (sides[0] + sides[1])) {     //Check that the larger side is less than the sum of the other.
+            double dl = Shape.rndShape.nextDouble();    //If not, we set new value of the larger side.
+            try {                                       // Added exception monitoring
+                sides[2] = sides[1] + dl + (double) Shape.rndShape.nextInt((int) (sides[0]));
+            } catch (IllegalArgumentException e) {
+                sides[2] = sides[1] + dl + (double) Shape.rndShape.nextInt((int) (sides[0] + 1));
+            }
         }
-
         sideA = sides[0];
         sideB = sides[1];
         sideC = sides[2];
@@ -49,7 +50,8 @@ class Triangle extends Shape {
     //Override the toString() method.
     @Override
     public String toString(){
-        return  super.toString() + ", a = " + sideA + ", b = " + sideB + ", c = " + sideC;
+        //return  super.toString() + ", a = " + sideA + ", b = " + sideB + ", c = " + sideC;
+        return String.format("%s, a = %.2f, b = %.2f, c = %.2f", super.toString(), sideA, sideB, sideC);
     }
 
     //Override the calcArea() method
@@ -100,6 +102,14 @@ class Triangle extends Shape {
 
     @Override
     public void draw() {
-        System.out.println(toString() + ", area is: " + calcArea());
+        System.out.printf("%s, area is: %.2f\n", toString(), calcArea());
+    }
+
+    protected static Triangle parseTriangle(String s){
+        String[] params = s.split(":");
+        String[] sides = params[1].split(",");
+        Triangle tr = new Triangle(params[0], Double.parseDouble(sides[0]), Double.parseDouble(sides[1]),
+                Double.parseDouble(sides[2]));
+        return tr;
     }
 }
