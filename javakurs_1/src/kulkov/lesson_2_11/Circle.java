@@ -1,10 +1,10 @@
-package kulkov.lesson_2_9;
+package kulkov.lesson_2_11;
 
 /**
- * Created by User on 31.08.2016.
+ * Created by User on 04.09.2016.
  * A subclass of shapes defining circles
  */
-class Circle extends Shape {                         //Circle is subclass of Shape
+public class Circle extends Shape {                         //Circle is subclass of Shape
     private double radius;
 
     public Circle(String color, double radius) {            //Circles constructor

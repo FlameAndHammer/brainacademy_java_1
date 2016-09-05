@@ -1,10 +1,10 @@
-package kulkov.lesson_2_9;
+package kulkov.lesson_2_11;
 
 /**
- * Created by User on 31.08.2016.
+ * Created by User on 04.09.2016.
  * Abstract superclass which defines shapes in general
  */
-abstract class Shape implements Drawable, Comparable {   //Abstract class won't have instances
+public abstract class Shape implements Comparable {   //Abstract class won't have instances
     private String shapeColor;
 
     public String getShapeColor() {                     //Default getter
@@ -22,7 +22,7 @@ abstract class Shape implements Drawable, Comparable {   //Abstract class won't 
 
     public abstract double calcArea();                  //Abstract method will be implemented in the child classes
 
-    public static Shape parseShape(String s) {          //Parse string to create new shape
+    public static Shape parseShape(String s) throws InvalidShapeStringException{          //Parse string to create new shape
         String[] shapeData = s.split(":", 2);           //Separate shape type from a string
         switch (shapeData[0]) {                         //Call appropriate method to create shape based on shape type
             case "Circle":
@@ -31,15 +31,9 @@ abstract class Shape implements Drawable, Comparable {   //Abstract class won't 
                 return Rectangle.parseRectangle(shapeData[1]);
             case "Triangle":
                 return Triangle.parseTriangle(shapeData[1]);
-            default:                                    //In case it is not circle, rectangle, or triangle, inform user
-                System.out.println("Incorrect input: program cannot identify shape");
+            default:                                    //In case it is not circle, rectangle, or triangle, throw exception
+                throw new InvalidShapeStringException("InvalidShapeStringException: incorrect input data! Shape should be Circle, Rectangle or Triangle");
         }
-        return null;
-    }
-
-    @Override
-    public void draw() {                                //Method which prints information about an object
-        System.out.println(toString() + ", area is: " + calcArea());
     }
 
     public int compareTo(Object o) {                    //Implement Comparable interface method

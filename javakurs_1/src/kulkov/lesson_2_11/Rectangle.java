@@ -1,10 +1,10 @@
-package kulkov.lesson_2_9;
+package kulkov.lesson_2_11;
 
 /**
- * Created by User on 31.08.2016.
+ * Created by User on 04.09.2016.
  * A subclass of shapes defining rectangles
  */
-class Rectangle extends Shape implements Cloneable {             //Rectangle is subclass of Shape
+public class Rectangle extends Shape implements Cloneable {             //Rectangle is subclass of Shape
     private double width;
     private double height;
 
