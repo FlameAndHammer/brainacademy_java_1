@@ -4,7 +4,7 @@ package kulkov.lesson_2_9;
  * Created by User on 31.08.2016.
  * A subclass of shapes defining circles
  */
-public class Circle extends Shape {                         //Circle is subclass of Shape
+class Circle extends Shape {                         //Circle is subclass of Shape
     private double radius;
 
     public Circle(String color, double radius) {            //Circles constructor

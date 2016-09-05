@@ -4,7 +4,7 @@ package kulkov.lesson_2_9;
  * Created by User on 31.08.2016.
  * Abstract superclass which defines shapes in general
  */
-public abstract class Shape implements Drawable, Comparable {   //Abstract class won't have instances
+abstract class Shape implements Drawable, Comparable {   //Abstract class won't have instances
     private String shapeColor;
 
     public String getShapeColor() {                     //Default getter

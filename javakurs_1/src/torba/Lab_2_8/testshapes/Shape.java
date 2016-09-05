@@ -4,12 +4,19 @@ public abstract class Shape implements Drawable, Comparable {
 
     private String shapeColor;
 
-    public static Object parseShape(String s){
+    public static Object parseShape(String s) throws InvalidShapeStringException {
+
+        //String filter = "(Rectangle|Triangle|Circle):\\w+(:\\d+)*";
+        String filter = "(Rectangle:\\w+(:\\d+){2})|(Triangle:\\w+(:\\d+){3})|(Circle:\\w+(:\\d+){1})";
+        java.util.regex.Pattern pattern = java.util.regex.Pattern.compile(filter);
+        java.util.regex.Matcher matcher = pattern.matcher(s);
+        if (! matcher.matches()) {throw new InvalidShapeStringException("Invalid string for shape");}
+
         String[] m = s.split(":");
         switch (m[0]){
             case "Rectangle":
                 //{return new Rectangle(m[1], Double.parseDouble(m[2]), Double.parseDouble(m[3]));}
-                {return Rectangle.parseRectangle(s);}
+            {return Rectangle.parseRectangle(s);}
             case "Triangle":
                 //{return new Triangle(m[1], Double.parseDouble(m[2]), Double.parseDouble(m[3]), Double.parseDouble(m[4]));}
                 {return Triangle.parseTriangle(s);}
