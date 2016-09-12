@@ -14,8 +14,8 @@ class MyPhoneBook {
     }
 
     public void printPhoneBook(){
-        for (PhoneNumber e: phoneNumbers){
-            System.out.println(e);
+        for (int i = 0; i < counter; i++){
+            System.out.println(phoneNumbers[i]);
         }
     }
 
