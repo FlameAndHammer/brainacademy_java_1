@@ -7,8 +7,7 @@ import java.util.Arrays;
  */
 public class Main {
     public static void main(String[] args) {
-        Shop shop = new Shop("Test", 65000, "Odesa", "Deribasovskaya", 5, 2);
-        shop.createGood("Bonaqua", "water", 5.76);
-        shop.createGood("Bonaqua", "water", 12.50);
+        Shop sh1 = new Shop("Prestig", 65000, "Odesa", "Deribasovskaya", 1);
+        System.out.println(sh1);
     }
 }

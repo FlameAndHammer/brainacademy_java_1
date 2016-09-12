@@ -32,6 +32,6 @@ class Adress {
 
     @Override
     public String toString(){
-        return String.format("%d %s, %, %d", home, street, city, index);
+        return String.format("%d %s, %s, %d", home, street, city, index);
     }
 }
