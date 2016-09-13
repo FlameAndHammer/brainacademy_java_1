@@ -4,7 +4,7 @@ package kulkov.lesson_2_11;
  * Created by User on 04.09.2016.
  * Practice with throwing exception handling
  */
-public class Person {
+class Person {
     //Fields
     private String firstName;
     private String lastName;

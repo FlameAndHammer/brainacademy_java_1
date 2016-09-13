@@ -14,7 +14,7 @@ class ShapeAreaComparator implements Comparator {
         if (shape1.calcArea() > shape2.calcArea()) {
             return 1;
         }
-        if (shape2.calcArea() < shape2.calcArea()) {
+        if (shape1.calcArea() < shape2.calcArea()) {
             return -1;
         }
         return 0;
