@@ -7,8 +7,8 @@ public class TestEnum2 {
     public static void main(String[] args) {
         Card[] packOfCards = new Card[52];
         int cardIndex = 0;
-        for (Suit suit: Suit.values()){
-            for (Rank rank: Rank.values()){
+        for(Card.Suit suit: Card.Suit.values()){
+            for (Card.Rank rank: Card.Rank.values()){
                 packOfCards[cardIndex++] = new Card(rank, suit);
             }
         }
