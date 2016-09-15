@@ -6,7 +6,7 @@ import java.util.Scanner;
  * Created by User on 31.08.2016.
  * Practice with exceptions
  */
-public class Main {
+class Main {
     public static void main(String[]args) {
         try {
             throw new MyException("Hello!");            //Create exception instance using constructor
