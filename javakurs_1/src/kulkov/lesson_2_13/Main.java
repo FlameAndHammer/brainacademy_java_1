@@ -6,7 +6,7 @@ import java.util.Scanner;
  * Created by User on 12.09.2016.
  * Practice with enumerations
  */
-public class Main {
+class Main {
     public static void main(String[] args) {
         for (MyDayOfWeek day : MyDayOfWeek.values()) {              //Treat enumeration as array of constants
             System.out.println(day);                                //Print every element of it to the console

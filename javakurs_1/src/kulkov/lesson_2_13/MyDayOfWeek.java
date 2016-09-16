@@ -4,7 +4,7 @@ package kulkov.lesson_2_13;
  * Created by User on 12.09.2016.
  * Days of a week
  */
-public enum MyDayOfWeek {
+enum MyDayOfWeek {
     MONDAY,
     TUESDAY,
     WEDNESDAY,

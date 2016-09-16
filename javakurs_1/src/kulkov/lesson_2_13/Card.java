@@ -2,8 +2,9 @@ package kulkov.lesson_2_13;
 
 /**
  * Created by User on 13.09.2016.
+ * Describing a card
  */
-public class Card {
+class Card {
     private Suit cardSuit;
     private Rank cardRank;
 

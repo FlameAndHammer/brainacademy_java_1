@@ -4,7 +4,7 @@ package kulkov.lesson_2_13;
  * Created by User on 13.09.2016.
  * Card possible ranks
  */
-public enum Rank {
+enum Rank {
     ACE,
     TWO,
     THREE,
