@@ -4,7 +4,7 @@ package kulkov.lesson_2_11;
  * Created by User on 04.09.2016.
  * A subclass of shapes defining triangles
  */
-public class Triangle extends Shape implements Cloneable {              //Triangle is subclass of Shape
+class Triangle extends Shape implements Cloneable {              //Triangle is subclass of Shape
     private double a, b, c;
 
     public Triangle(String color, double a, double b, double c) {       //Triangles constructor

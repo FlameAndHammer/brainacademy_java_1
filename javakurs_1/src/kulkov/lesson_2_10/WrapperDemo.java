@@ -4,7 +4,7 @@ package kulkov.lesson_2_10;
  * Created by User on 31.08.2016.
  * Creating wrappers
  */
-public class WrapperDemo {
+class WrapperDemo {
     public static void main(String[]args) {
         //Define integer variables different ways but with the same value
         Integer x1 = 10;                        //literal
