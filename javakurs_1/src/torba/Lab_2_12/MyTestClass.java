@@ -2,12 +2,17 @@ package torba.Lab_2_12;
 
 public class MyTestClass {
 
+    int i = 1;
+
     static class MyStaticNested {
-        int i = 1;
+        int i = 2;
     }
 
     class MyInner {
-        int i = 1;
+        int i = 3;
+        public int getI() {
+            return MyTestClass.this.i;
+        }
     }
 
     public void test() {

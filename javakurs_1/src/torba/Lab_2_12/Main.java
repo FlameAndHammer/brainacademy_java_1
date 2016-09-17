@@ -34,6 +34,8 @@ public class Main {
         z = mi.i;
         System.out.println(z);
 
+        System.out.println(mi.getI());
+
 
     }
 
