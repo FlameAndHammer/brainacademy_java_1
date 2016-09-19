@@ -4,7 +4,7 @@ package kulkov.lesson_2_14;
  * Created by User on 14.09.2016.
  * Practice with generics
  */
-public class Main {
+class Main {
     public static void main(String[] args) {
         //Creating instances of the same class with different type variables
         MyTuple<String, Integer, Long> myTuple1 = new MyTuple<>("Hello", 10, 50L);              //String, Integer, Long

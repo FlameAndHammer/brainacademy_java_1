@@ -4,7 +4,7 @@ package kulkov.lesson_2_14;
  * Created by User on 16.09.2016.
  * Generic methods
  */
-public class MyTestMethod {
+class MyTestMethod {
     //Find the number of values that higher than a specified one
     public static <T extends Number> T calcNum(T[] array, T maxElem) {
         return calcNum(array, maxElem, 0, 0);                       //Invoke method with start values

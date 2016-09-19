@@ -6,7 +6,7 @@ import java.util.Random;
  * Created by User on 16.09.2016.
  * Generic class
  */
-public class MyMixer<T> {
+class MyMixer<T> {
     //Shuffle the elements of array
     public T[] shuffle(T[] array) {
         Random random = new Random();
