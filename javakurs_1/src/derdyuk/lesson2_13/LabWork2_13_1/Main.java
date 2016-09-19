@@ -8,5 +8,16 @@ public class Main {
         for(MyDayOfWeek myday:MyDayOfWeek.values()){
             System.out.println(myday);
         }
+        //2_13_2
+        System.out.println();
+        for(MyDayOfWeek myJavaDay:MyDayOfWeek.values()){
+            switch (myJavaDay){
+                case MONDEY:
+                case THURTHDEY:
+                case TUESDAY:
+                    System.out.println("My Java days is: " + myJavaDay);
+            }
+        }
+
     }
 }
