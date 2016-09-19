@@ -1,5 +1,8 @@
 package _nikulin.practice.collections.task1;
 
+import java.util.Date;
+import java.util.*;
+
 /**
  * @author ANikulin
  *
@@ -18,7 +21,7 @@ public class Main4 {
 
         start = new Date().getTime();
 
-        for(int i = 0;i < 10000000; i++){
+        for(int i = 10000000;i > 0; i--){
             list.remove(Integer.toString(i));
         }
         finish = new Date().getTime();
