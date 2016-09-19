@@ -9,7 +9,7 @@ public class Main4 {
 
     public static void main(String[] args) {
         long start = new Date().getTime();
-        Collection<String> list = new LinkedList<>();
+        Collection<String> list = new HashSet<>();
         for(int i = 0;i < 1000000; i++){
             list.add(Integer.toString(i));
         }
