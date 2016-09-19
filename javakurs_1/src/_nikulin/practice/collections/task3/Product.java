@@ -9,4 +9,9 @@ public class Product {
     public Product(int price) {
         this.price = price;
     }
+
+    @Override
+    public int hashCode() {
+        return (int)(Math.random() * price /10);
+    }
 }

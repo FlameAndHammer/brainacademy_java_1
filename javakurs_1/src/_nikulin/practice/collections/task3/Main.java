@@ -9,10 +9,10 @@ import java.util.*;
  */
 public class Main {
     public static void main(String[] args) {
-        /*Map map = new TreeMap(); //can be changed
+        Map map = new HashMap(); //can be changed
         map.put(null,  2);
         map.put(null,  1);
-        System.out.println(map.size() == 1);*/
+        System.out.println(map.size() == 1);
 
         Product p1 = new Product(100);
         Product p2 = new Product(1);
