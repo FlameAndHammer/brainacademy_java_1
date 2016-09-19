@@ -1,6 +1,6 @@
 package torba.Lab_2_14;
 
-public class MyTestMethod<T> {
+public class MyTestMethod<T> { //T extends Number, Comparable
 
     public int calcNum(T[] arr, T maxelm) {
 
@@ -22,7 +22,7 @@ public class MyTestMethod<T> {
 
         for (T el : arr) {
             if ( ((Comparable)el).compareTo(maxval) > 0 ) {
-                if ( el instanceof Integer) {
+                if ( el instanceof Integer) { // T.doubleValue();
                     res = res + (Integer) el;
                 }
                 if ( el instanceof Double) {
