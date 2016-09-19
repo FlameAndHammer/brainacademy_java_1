@@ -13,7 +13,7 @@ class MyPhone {
 
     public void swichOn(){
         System.out.println("Loading PhoneBook records…");
-        mpb = this.new MyPhoneBook();
+        mpb = new MyPhoneBook();
         mpb.addPhoneNumber("Petya", "123456");
         mpb.addPhoneNumber("Sasha", "345876");
         mpb.addPhoneNumber("Marina", "964789");

@@ -5,14 +5,16 @@ import java.util.Comparator;
 
 /**
  * Created by User on 13.09.2016.
+ * Describing phone by nested classes
  */
-public class MyPhone {
+class MyPhone {
+    private MyPhoneBook phoneBook = new MyPhoneBook();
 
     static class MyPhoneBook {
         private int lastPhoneNumber;                                            //Contact counter
-        private static PhoneNumber[] phoneNumbers = new PhoneNumber[10];        //Phone book can comprise up to 10 contacts
+        private PhoneNumber[] phoneNumbers = new PhoneNumber[10];               //Phone book can comprise up to 10 contacts
 
-        public static PhoneNumber[] getPhoneNumbers() {
+        public PhoneNumber[] getPhoneNumbers() {
             return phoneNumbers;
         }
 
@@ -95,23 +97,22 @@ public class MyPhone {
         }
     }
 
-    public void switchOn() {
+    public void switchOn() {                                                    //Fill phone book with contacts
         System.out.print("Loading PhoneBook records...");
-        MyPhoneBook pb = new MyPhoneBook();                                     //Create instance of PhoneBook and fill it with contacts
-        pb.addPhoneNumber("Alex", "215135");                                    //Not an excellent designer choice though
-        pb.addPhoneNumber("Ivan", "564874");                                    //We would never be able to refer to phone book outside the method
-        pb.addPhoneNumber("Peter", "294272");                                   //Unless we make PhoneNumber[] static variable
-        pb.addPhoneNumber("Victor", "156392");                                  //Thus we need to make inner class MyPhoneBook static too
-        pb.addPhoneNumber("Steve", "365015");
-        pb.addPhoneNumber("John", "843409");
-        pb.addPhoneNumber("Richard", "326437");
-        pb.addPhoneNumber("Alice", "783248");
+        phoneBook.addPhoneNumber("Alex", "215135");
+        phoneBook.addPhoneNumber("Ivan", "564874");
+        phoneBook.addPhoneNumber("Peter", "294272");
+        phoneBook.addPhoneNumber("Victor", "156392");
+        phoneBook.addPhoneNumber("Steve", "365015");
+        phoneBook.addPhoneNumber("John", "843409");
+        phoneBook.addPhoneNumber("Richard", "326437");
+        phoneBook.addPhoneNumber("Alice", "783248");
         System.out.println(" OK!");
     }
 
     public void call(int i) {
         try {                                                                   //Print the information about specified contact
-            System.out.println("Calling to: " + MyPhoneBook.getPhoneNumbers()[i].toString());
+            System.out.println("Calling to: " + phoneBook.getPhoneNumbers()[i].toString());
         } catch (ArrayIndexOutOfBoundsException | NullPointerException e) {     //Just in case somebody will try to get a nonexistent contact
             System.out.println("Phone book does not contain such contact");
         }

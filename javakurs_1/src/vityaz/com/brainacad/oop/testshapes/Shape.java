@@ -1,5 +1,7 @@
 package vityaz.com.brainacad.oop.testshapes;
 
+import java.util.regex.*;
+
 abstract public class Shape implements Drawable, Comparable<Shape>{
     protected String color;
     
@@ -26,6 +28,12 @@ abstract public class Shape implements Drawable, Comparable<Shape>{
         if(this.calcArea() == o.calcArea()){return 0;}
         else if(this.calcArea() < o.calcArea()){return -1;}
         else return 1;
+    }
+
+    public static boolean checkShape(String string){
+        Pattern p = Pattern.compile("(((R|r)ectangle)|((T|t)riangle)|((C|c)ircle))\\W\\w*\\W\\d+(\\W\\d+(\\W\\d+)?)?");
+        Matcher m = p.matcher(string);
+        return m.matches();
     }
 
     public static Shape parseShape(String string){
