@@ -4,7 +4,7 @@ package kulkov.lesson_2_14;
  * Created by User on 14.09.2016.
  * Multiple type variables
  */
-public class MyTuple<A, B, C> {         //Generic class
+class MyTuple<A, B, C> {         //Generic class
     //Fields
     private A a;
     private B b;
