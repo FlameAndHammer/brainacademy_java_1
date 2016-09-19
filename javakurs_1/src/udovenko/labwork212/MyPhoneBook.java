@@ -28,19 +28,7 @@ class MyPhoneBook {
 
             @Override
             public int compare(PhoneNumber o1, PhoneNumber o2) {
-                int i = 0;
-                while (i < o1.name.length() && i < o2.name.length()){
-                    if (o1.name.toLowerCase().charAt(i) > o2.name.toLowerCase().charAt(i))
-                        return 1;
-                    if (o1.name.toLowerCase().charAt(i) < o2.name.toLowerCase().charAt(i))
-                        return -1;
-                    i++;
-                }
-                if (o1.name.length() > o2.name.length())
-                    return 1;
-                if (o1.name.length() < o2.name.length())
-                    return -1;
-                return 0;
+                return o1.name.compareTo(o2.name);
             }
         });
     }
