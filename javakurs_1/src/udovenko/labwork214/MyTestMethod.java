@@ -16,10 +16,10 @@ class MyTestMethod {
 
 //    Lab Work 2-14-3
     /*static <T extends Number> T culcSum(T[] array, T maxval){
-        T result = new T();
+        ;
         for (T e: array){
             if (((Comparable)e).compareTo(maxval) > 0){
-                result = result + e;
+                Number.;
             }
         }
     }*/

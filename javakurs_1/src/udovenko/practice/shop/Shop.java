@@ -1,6 +1,4 @@
-package udovenko.practice;
-
-import java.util.Arrays;
+package udovenko.practice.shop;
 
 /**
  * Created by gladi on 05.09.2016.

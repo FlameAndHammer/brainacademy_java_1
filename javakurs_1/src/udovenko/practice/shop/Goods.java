@@ -1,4 +1,4 @@
-package udovenko.practice;
+package udovenko.practice.shop;
 
 /**
  * Created by gladi on 05.09.2016.

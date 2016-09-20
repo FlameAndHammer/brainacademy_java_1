@@ -1,4 +1,4 @@
-package udovenko.practice;
+package udovenko.practice.shop;
 
 import java.text.Format;
 
