@@ -51,5 +51,19 @@ public class TestCollection1 {
         MyNumGenerator mng = new MyNumGenerator(5, 64);
         System.out.println("Lab Work 2-15-4");
         System.out.println(mng.generate());
+
+//      Lab Work 2-15-5
+        System.out.println("Lab Work 2-15-5");
+        System.out.println(mng.generateDistinct());
+
+//      Lab Work 2-15-6
+        System.out.println("Lab Work 2-15-6");
+        MyTranslator mt = new MyTranslator();
+        mt.addNewWorld("cat", "кот");
+        mt.addNewWorld("caught", "поймал");
+        mt.addNewWorld("mouse", "мышь");
+        String string = "cat caught mouse";
+        System.out.println(string);
+        System.out.println(mt.Translate(string));
     }
 }

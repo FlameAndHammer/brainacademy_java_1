@@ -29,5 +29,13 @@ public class TestGenerics2 {
         System.out.println("Array values: " + sb.toString());
         System.out.println("Number of elements that are greater than 3:");
         System.out.println(MyTestMethod.culcNum(arrDouble, Double.valueOf("3")));
+
+//        Lab Work 2-14-3
+        System.out.println("Array values: " + Arrays.toString(arrInteger));
+        System.out.println("Sum of elements that are greater than 3:");
+        System.out.printf("%.2f\n", MyTestMethod.culcSum(arrInteger, Integer.valueOf("3")));
+        System.out.println("Array values: " + sb.toString());
+        System.out.println("Sum of elements that are greater than 3:");
+        System.out.printf("%.2f\n", MyTestMethod.culcSum(arrDouble, Double.valueOf("3")));
     }
 }

@@ -8,7 +8,7 @@ import java.util.*;
  */
 public class Main {
     public static void main(String[] args) {
-
+        //2.15.1
         List<String> arrayList = new ArrayList<String>(11);             //Initialize array list of strings with initial capacity of 11 elements
         for (int i = 0; i <= 10; i++) {
             arrayList.add("number_" + i);                               //Fill list by adding elements to it in the loop
@@ -18,7 +18,7 @@ public class Main {
             System.out.println(arrayItr.next());                        //Print next element to the console
         }
         System.out.println();
-
+        //2.15.2
         List<String> linkedList = new LinkedList<String>();             //Initialize linked list of strings
         Random r = new Random();                                        //Initialize randomizer
         for (int i = 0; i <= 10; i++) {                                 //Fill list by adding elements at random insertion points in the loop
@@ -29,7 +29,7 @@ public class Main {
             System.out.println(linkedItr.next());
         }
         System.out.println();
-
+        //2.15.3
         ListIterator<String> listArrItr = arrayList.listIterator(), listLinkItr = linkedList.listIterator();    //Create list iterators
         while (listArrItr.hasNext()) {
             while (listLinkItr.hasNext()) {
@@ -42,12 +42,12 @@ public class Main {
         }
         printElements(linkedList);                                      //Print linked list to the console
         System.out.println();
-
+        //2.15.4-5
         MyNumGenerator generator = new MyNumGenerator(5, 64);           //Initialize number generator
         System.out.println(generator.generate());                       //Print generated numbers to console
         System.out.println(generator.generateDistinct());               //Print generated distinct numbers to console
         System.out.println();
-
+        //2.15.6
         MyTranslator translator = new MyTranslator();                   //Initialize word translator
         translator.addNewWord("cat", "кот");                            //Add new words and their translation to dictionary
         translator.addNewWord("caught", "поймал");

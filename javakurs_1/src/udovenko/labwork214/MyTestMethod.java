@@ -15,12 +15,13 @@ class MyTestMethod {
     }
 
 //    Lab Work 2-14-3
-    /*static <T extends Number> T culcSum(T[] array, T maxval){
-        T result = new T();
+    static <T extends Number> Double culcSum(T[] array, T maxval){
+        Double result = Double.valueOf("0");
         for (T e: array){
             if (((Comparable)e).compareTo(maxval) > 0){
-                result = result + e;
+                result += e.doubleValue();
             }
         }
-    }*/
+        return result;
+    }
 }
