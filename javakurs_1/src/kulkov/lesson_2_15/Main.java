@@ -6,7 +6,7 @@ import java.util.*;
  * Created by User on 18.09.2016.
  * Practice with collections
  */
-public class Main {
+class Main {
     public static void main(String[] args) {
         //2.15.1
         List<String> arrayList = new ArrayList<String>(11);             //Initialize array list of strings with initial capacity of 11 elements

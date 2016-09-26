@@ -6,7 +6,7 @@ import java.util.HashMap;
  * Created by User on 19.09.2016.
  * Practice with HashMap
  */
-public class MyTranslator {
+class MyTranslator {
     private HashMap<String,String> dictionary = new HashMap<String,String>();   //Initialize hash map
 
     public void addNewWord(String en, String ru) {

@@ -6,7 +6,7 @@ import java.util.*;
  * Created by User on 19.09.2016.
  * Generating numbers
  */
-public class MyNumGenerator {
+class MyNumGenerator {
     //Fields
     private int numOfElem;                                  //Number of elements
     private int maxNumber;                                  //Max value
