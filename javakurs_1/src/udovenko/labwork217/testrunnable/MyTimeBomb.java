@@ -1,9 +1,9 @@
-package udovenko.labwork217;
+package udovenko.labwork217.testrunnable;
 
 /**
  * Created by gladi on 28.09.2016.
  */
-class MyTimeBomb extends Thread {
+class MyTimeBomb implements Runnable {
     @Override
     public void run(){
         int i = 10;
