@@ -14,8 +14,8 @@ public class Main {
         MySumCount mySumCount2 = new MySumCount();
         mySumCount2.setArr(myArray);
         mySumCount1.setStartIndex(0);
-        mySumCount2.setStartIndex(499);
-        mySumCount1.setStopIndex(499);
+        mySumCount2.setStartIndex(500);
+        mySumCount1.setStopIndex(500);
         mySumCount2.setStopIndex(1000);
         Thread th1 = new Thread(mySumCount1);
         Thread th2 = new Thread(mySumCount2);
