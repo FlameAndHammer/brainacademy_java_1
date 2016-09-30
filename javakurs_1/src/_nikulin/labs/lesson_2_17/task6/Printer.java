@@ -23,6 +23,7 @@ class Printer extends Thread {
                         }
                     previousNumber = st.getNumber();
                 }
+                st.notifyAll();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
