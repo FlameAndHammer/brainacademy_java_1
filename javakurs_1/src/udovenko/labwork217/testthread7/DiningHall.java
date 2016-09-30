@@ -1,5 +1,7 @@
 package udovenko.labwork217.testthread7;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -22,12 +24,12 @@ public class DiningHall {
     }
     public static void main(String[] args) {
         DiningHall d = new DiningHall();
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 100; i++)
             d.makePizza();
-        ServedPizza[] serveds = new ServedPizza[20];
+        List<ServedPizza> serveds = new ArrayList<>();
         CountDownLatch cdl = new CountDownLatch(1);
-        for (int i = 0; i < 20; i++) {
-            serveds[i] = new ServedPizza("Student" + i, cdl, d);
+        for (int i = 0; i < 200; i++) {
+            serveds.add(new ServedPizza("Student" + i, cdl, d));
         }
         cdl.countDown();
     }

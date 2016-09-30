@@ -15,6 +15,7 @@ class Counter extends Thread {
         int count = 0;
         while (count <= 1000000){
             synchronized (st) {
+                st.setNumber(count++);
                 try {
                     while (st.switcher){
                         st.wait();
@@ -23,7 +24,6 @@ class Counter extends Thread {
                     e.printStackTrace();
                 }
                 st.switcher = true;
-                st.setNumber(count++);
                 st.notify();
             }
         }

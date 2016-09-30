@@ -12,8 +12,9 @@ class Printer extends Thread {
 
     @Override
     public void run(){
-        while (st.getNumber() < 999999){
+        while (st.getNumber() < 1000000){
             synchronized (st){
+                System.out.println(st.getNumber());
                 try {
                         while (!st.switcher){
                             st.wait();
@@ -22,7 +23,6 @@ class Printer extends Thread {
                     e.printStackTrace();
                 }
                 st.switcher = false;
-                System.out.println(st.getNumber());
                 st.notify();
             }
         }

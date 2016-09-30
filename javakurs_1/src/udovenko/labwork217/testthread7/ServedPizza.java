@@ -18,12 +18,14 @@ class ServedPizza extends Thread {
 
     @Override
     public void run(){
-        try {
-            timer.await();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        synchronized (dn) {
+            try {
+                timer.await();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            dn.studentName = getName();
+            dn.servePizza();
         }
-        dn.studentName = getName();
-        dn.servePizza();
     }
 }
