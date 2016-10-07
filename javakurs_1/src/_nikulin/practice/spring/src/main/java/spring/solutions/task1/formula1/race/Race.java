@@ -1,5 +1,9 @@
 package spring.solutions.task1.formula1.race;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import spring.solutions.task1.formula1.car.RacingCar;
 import spring.solutions.task1.formula1.car.impl.FerrariRacingCar;
 import spring.solutions.task1.formula1.marshal.impl.ChequeredFlagMarshal;
 
@@ -10,7 +14,7 @@ import spring.solutions.task1.formula1.marshal.impl.ChequeredFlagMarshal;
 public class Race {
 
     private ChequeredFlagMarshal marshal = new ChequeredFlagMarshal();
-    private FerrariRacingCar racingCar = new FerrariRacingCar();
+    private RacingCar racingCar;
 
     private void race() {
         System.out.println("----------------------------------");
@@ -26,7 +30,7 @@ public class Race {
         System.out.println("----------------------------------");
     }
 
-    private void startCar(FerrariRacingCar racingCar) {
+    private void startCar(RacingCar racingCar) {
         racingCar.start();
         racingCar.drive();
         racingCar.pitStop();
@@ -34,6 +38,18 @@ public class Race {
     }
 
     public static void main(String[] args) {
-        new Race().race();
+        ApplicationContext context = new ClassPathXmlApplicationContext("/task1-context.xml");
+        Race race = (Race) context.getBean(Race.class);
+        context.getAutowireCapableBeanFactory().autowireBean(race);
+        race.setRacingCar((RacingCar) context.getBean("ferrari"));
+        race.race();
+    }
+
+    public void setRacingCar(RacingCar racingCar) {
+        this.racingCar = racingCar;
+    }
+
+    public RacingCar getRacingCar() {
+        return racingCar;
     }
 }
