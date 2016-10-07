@@ -9,7 +9,7 @@ import java.util.*;
  */
 public class Time {
 
-    public static void main(String[] args) {
+   /* public static void main(String[] args) {
         ArrayList list = new ArrayList<>();
         LinkedList list2 = new LinkedList<>();
         HashSet set = new HashSet<>();
@@ -132,5 +132,5 @@ public class Time {
 
         return еnd;
 
-    }
+    }*/
 }
