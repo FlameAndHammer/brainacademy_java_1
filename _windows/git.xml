@@ -1,0 +1,5 @@
+<application>
+  <component name="Git.Application.Settings">
+    <option name="myPathToGit" value="D:\IntelliJ IDEA 2016.2.4\Git\cmd\git.exe" />
+  </component>
+</application>
