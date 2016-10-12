@@ -7,6 +7,9 @@ package udovenko.practice.threads.task3;
 class BoxPrinter {
     private Object val;
 
+    public BoxPrinter() {
+    }
+
     public BoxPrinter(Object arg) {
         val = arg;
     }
@@ -19,9 +22,9 @@ class BoxPrinter {
         return val;
     }
 
-    /*public static <T extends BoxPrinter> T returnGenericNewInstance(T someT) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-        return Class.forName(T.getName(someT)).newInstance();
-    }*/
+    public static <T extends BoxPrinter> T returnGenericNewInstance(T someT) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+        return (T) Class.forName(T.getName(someT)).newInstance();
+    }
 
     public static String getName(BoxPrinter bp){
         return bp.getClass().getName();
@@ -37,6 +40,14 @@ class Test {
         System.out.println(value2);
 
         String intValue2 = (String) value2.getValue();
-//        System.out.println(BoxPrinter.returnGenericNewInstance(value1));
+        try {
+            System.out.println(BoxPrinter.returnGenericNewInstance(value1));
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        }
     }
 }
