@@ -8,12 +8,15 @@ import java.util.Arrays;
  */
 public class Main {
     public static void main(String[] args) {
+        System.out.println(new String(args[0]));
         File file = null;
         if (args.length > 0){
             file = new File(args[0]);
         } else {
             file = new File("./javakurs_1/src/_nikulin/labs");
         }
-        System.out.println(Arrays.toString(file.list()));
+        if (file.exists()) {
+            System.out.println(Arrays.toString(file.list()));
+        }
     }
 }
