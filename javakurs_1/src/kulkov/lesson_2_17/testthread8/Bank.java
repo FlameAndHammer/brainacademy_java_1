@@ -1,11 +1,16 @@
 package kulkov.lesson_2_17.testthread8;
 
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * Created by User on 03.10.2016.
+ * Money transaction logic
  */
 class Bank {
     private int accounts[];
     private int numOfAccounts;
+    private Lock lock = new ReentrantLock();                    //Initialize Lock object
     public Bank(int num_accounts, int init_balance) {
         accounts = new int[num_accounts];
         numOfAccounts = num_accounts;
@@ -18,15 +23,18 @@ class Bank {
             System.out.println("from: " + from + " to: " + to +
                     " amount: " + amount);
 
-            if (accounts[from] < amount) return;
-            accounts[from] = accounts[from] - amount;
-            Thread.sleep((int)(100*Math.random()));
-            accounts[to] = accounts[to] + amount;
+            lock.lock();                                        //Lock the following code from execution by other threads
+            if (accounts[from] < amount) return;                //If account does not have sufficient funds, return from method
+            accounts[from] = accounts[from] - amount;           //Take money from sender
+            accounts[to] = accounts[to] + amount;               //Give money to receiver
 
-            System.out.println("Total balance: " + totalBalance());
+            Thread.sleep((int)(100*Math.random()));
 
         } catch (InterruptedException e) {
-
+            Thread.currentThread().interrupt();                 //In case of interrupt request send it further
+        } finally {
+            System.out.println("Total balance: " + totalBalance());
+            lock.unlock();                                      //Remove lock
         }
     }
     private int totalBalance() {

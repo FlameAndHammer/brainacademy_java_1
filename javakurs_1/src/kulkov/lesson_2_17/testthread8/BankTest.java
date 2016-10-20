@@ -2,6 +2,7 @@ package kulkov.lesson_2_17.testthread8;
 
 /**
  * Created by User on 03.10.2016.
+ * Synchronizing threads with high level concurrency objects
  */
 public class BankTest {
     public static final int N_ACCOUNTS = 5;
@@ -12,13 +13,13 @@ public class BankTest {
         Transfer transfer = new Transfer(testBank, 100, 500);
         Thread[] threads = new Thread[N_ACCOUNTS];
 
-        for (int i = 0; i < N_ACCOUNTS; i++) {
+        for (int i = 0; i < N_ACCOUNTS; i++) {          //Create 5 threads
             threads[i] = new Thread(transfer);
-            threads[i].start();
+            threads[i].start();                         //Start the thread
         }
-        Thread.sleep(1000);
+        Thread.sleep(2000);                             //Put main thread to sleep for 2 seconds
         for (int i = 0; i < N_ACCOUNTS; i++) {
-            threads[i].interrupt();
+            threads[i].interrupt();                     //Ask thread for interruption
         }
 
         //...
