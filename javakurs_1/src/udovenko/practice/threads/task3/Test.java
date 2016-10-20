@@ -23,11 +23,14 @@ class BoxPrinter {
     }
 
     public static <T extends BoxPrinter> T returnGenericNewInstance(T someT) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-        return (T) Class.forName(T.getName(someT)).newInstance();
+        T result = (T) Class.forName(someT.getClass().getName()).newInstance();
+        result.setVal("Test");
+        return result;
+
     }
 
-    public static String getName(BoxPrinter bp){
-        return bp.getClass().getName();
+    public void setVal(Object val) {
+        this.val = val;
     }
 }
 
