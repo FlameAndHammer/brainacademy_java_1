@@ -5,7 +5,7 @@ package kulkov.lesson_2_16;
  * Practice with overload
  * I've modified the task a little to not fracture code between different 'Main' classes
  */
-public class Main {
+class Main {
     public static void main(String[] args) {
         Animal a = new Puppy();             //Initialize Animal instance with one of its heirs
         Dog d = (Dog) a;                    //Initialize Dog
