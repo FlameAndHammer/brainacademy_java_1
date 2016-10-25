@@ -22,7 +22,7 @@ public class MyFilesList {
         DataOutputStream out = null;
         try {
             out = new DataOutputStream(new BufferedOutputStream(new
-                    FileOutputStream("javakurs_1/src/udovenko/list.txt")));
+                    FileOutputStream("javakurs_1/src/udovenko/labwork31/list.txt")));
             for (String el: pathIn.list()){
                 out.writeChars(el + '\n');
 
