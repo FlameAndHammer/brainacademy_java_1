@@ -78,11 +78,11 @@ public class App {
 
         public void add() {
             this.d++;
-            notify();
+            //notify();
         }
 
         public int last() throws InterruptedException {
-            wait();
+            //wait();
             return this.d;
         }
     }

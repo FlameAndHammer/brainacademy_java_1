@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="spring.solutions.task2.formula1.car.impl.McLarenRacingCar"
+          id="mcLarenRacingCar"/>
+
+    <bean class="spring.solutions.task2.formula1.car.impl.FerrariRacingCar"
+          id="ferrariRacingCar"/>
+
+    <bean class="spring.solutions.task2.formula1.commentator.impl.Formula1Commentator"
+          id="formula1Commentator" init-method="init">
+        <property name="numberOfRace" value="1"/>
+        <property name="speechToIntroduce"
+                  value="Hi! My name is Jack and I'm going to comment today's race for you!"/>
+        <property name="wordsToSpeak">
+            <list value-type="java.lang.String">
+                <value>Today is sunny day</value>
+                <value>It would be hard to finish a race in time</value>
+                <value>I bet Ferrari will win!</value>
+            </list>
+        </property>
+        <property name="racingCars">
+            <list value-type="spring.solutions.task2.formula1.car.RacingCar">
+                <ref bean="ferrariRacingCar"/>
+                <ref bean="mcLarenRacingCar"/>
+            </list>
+        </property>
+    </bean>
+
+    <!--<bean class="spring.solutions.task2.formula1.TestBean">-->
+        <!--<property name="commentator" ref="formula1Commentator"/>-->
+    <!--</bean>-->
+
+</beans>
