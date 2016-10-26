@@ -7,7 +7,7 @@ import java.util.*;
  *
  * поисправлять ошибки. объяснить почему contains вфдает разные результаты
  */
-public class Time {
+class Time {
 
     public static void main(String[] args) {
         ArrayList<Integer> list = new ArrayList<Integer>();
@@ -50,7 +50,7 @@ public class Time {
         System.out.println("LinkedList contains - " + time2);
     }
 
-    public  static long addTimeList(List<Integer> list) {
+    public static long addTimeList(List<Integer> list) {
 
         long start = System.currentTimeMillis();
 

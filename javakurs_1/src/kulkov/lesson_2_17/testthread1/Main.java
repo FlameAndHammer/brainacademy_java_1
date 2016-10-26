@@ -4,7 +4,7 @@ package kulkov.lesson_2_17.testthread1;
  * Created by User on 26.09.2016.
  * Practice with class Thread
  */
-public class Main {
+class Main {
     public static void main(String[] args) {
         int[] myArray = new int[1000];
         MySumCount count1 = new MySumCount();

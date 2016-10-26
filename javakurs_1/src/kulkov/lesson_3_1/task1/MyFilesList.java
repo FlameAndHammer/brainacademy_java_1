@@ -7,7 +7,7 @@ import java.util.Arrays;
  * Created by User on 17.10.2016.
  * Practice with File class
  */
-public class MyFilesList {
+class MyFilesList {
     public static void main(String[] args) {
         File file;                      //Declare File instance
         if (args.length == 0) {         //If there is no argument

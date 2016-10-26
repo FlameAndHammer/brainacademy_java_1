@@ -8,7 +8,7 @@ import java.io.ObjectOutputStream;
  * Created by User on 19.10.2016.
  * Serialize class
  */
-public class SerializeDemo {
+class SerializeDemo {
     public static void main(String[] args) {
         Employee employee = new Employee("Alex", "SomeCity, AnyStreet", 1120, 555);
 

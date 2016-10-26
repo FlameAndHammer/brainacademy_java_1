@@ -8,7 +8,7 @@ package kulkov.practice.threads.task2;
  * Предусмотрите возможность ежесекундного оповещения потока, воспроизводящего сообщение,
  * потоком, отсчитывающим время.
  */
-public class App {
+class App {
 
     public App(int lifetime) throws InterruptedException {
         A a = new A();

@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentMap;
  * Created by User on 12.10.2016.
  * Writer puts key/value pairs to hash map
  */
-public class Writer implements Runnable {
+class Writer implements Runnable {
     private ConcurrentMap<Integer, String> map;
 
     public Writer(ConcurrentMap<Integer, String> map) {

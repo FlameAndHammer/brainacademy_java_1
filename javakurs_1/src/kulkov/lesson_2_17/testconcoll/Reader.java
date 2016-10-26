@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentMap;
  * Created by User on 12.10.2016.
  * Reader finds values for the keys and print them to console
  */
-public class Reader implements Runnable {
+class Reader implements Runnable {
     private Map<Integer, String> map;
 
     public Reader(Map<Integer, String> map) {

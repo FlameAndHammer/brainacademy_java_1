@@ -7,7 +7,7 @@ import java.util.concurrent.RecursiveTask;
  * Created by User on 17.10.2016.
  * Recursive Task
  */
-public class ForkJoinTest extends RecursiveTask<Long> {
+class ForkJoinTest extends RecursiveTask<Long> {
     private List<Integer> list;
     private int from;                       //starting position
     private int to;                         //final position

@@ -4,7 +4,7 @@ package kulkov.lesson_2_17.testdeadlock;
  * Created by User on 07.10.2016.
  * Creating deadlock situation
  */
-public class Main {
+class Main {
     public static void main(String[] args) {
         //Create 3 immutable objects
         final MyObject lock1 = new MyObject(1);

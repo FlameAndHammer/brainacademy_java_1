@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by User on 19.10.2016.
  * Serializable class
  */
-public class Employee implements Serializable {
+class Employee implements Serializable {
     private String name;
     private String address;
     private transient int SSN;          //non-serializable field

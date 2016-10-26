@@ -4,7 +4,7 @@ package kulkov.lesson_2_17.testthread5;
  * Created by User on 30.09.2016.
  * Synchronizing two threads with wait/notify mechanism
  */
-public class Main {
+class Main {
     public static void main(String[] args) throws InterruptedException{
         Storage storage = new Storage();
 

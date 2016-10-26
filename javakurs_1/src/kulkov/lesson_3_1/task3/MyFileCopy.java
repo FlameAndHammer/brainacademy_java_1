@@ -8,7 +8,7 @@ import java.io.IOException;
  * Created by User on 17.10.2016.
  * Practice with Byte streams
  */
-public class MyFileCopy {
+class MyFileCopy {
     public static void main(String[] args) {
         try (FileInputStream in = new FileInputStream(args[0]);         //Initialize input and output streams by the program arguments
              FileOutputStream out = new FileOutputStream(args[1])) {    //To avoid resource leak "try with resources" mechanism

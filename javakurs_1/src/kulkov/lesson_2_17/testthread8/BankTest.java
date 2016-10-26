@@ -4,7 +4,7 @@ package kulkov.lesson_2_17.testthread8;
  * Created by User on 03.10.2016.
  * Synchronizing threads with high level concurrency objects
  */
-public class BankTest {
+class BankTest {
     public static final int N_ACCOUNTS = 5;
     public static final int INIT_BALANCE = 1000;
 

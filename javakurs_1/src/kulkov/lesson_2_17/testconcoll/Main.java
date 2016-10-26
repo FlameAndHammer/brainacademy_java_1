@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentMap;
  * Created by User on 30.09.2016.
  * Concurrent collections
  */
-public class Main {
+class Main {
     public static void main(String[] args) throws InterruptedException{
         ConcurrentMap<Integer, String> map = new ConcurrentHashMap<Integer, String>();  //Initialize concurrent hash map
 

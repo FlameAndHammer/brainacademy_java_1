@@ -9,7 +9,7 @@ import java.util.concurrent.ForkJoinPool;
  * Created by User on 16.10.2016.
  * Fork/join framework
  */
-public class Main {
+class Main {
     public static void main(String[] args) {
         Random r = new Random();                            //Initialize random
         List<Integer> list = new ArrayList<>(1000_000);     //Initialize the list with 1M numbers

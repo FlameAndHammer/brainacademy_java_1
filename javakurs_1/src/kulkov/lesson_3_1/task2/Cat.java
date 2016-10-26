@@ -8,7 +8,7 @@ import java.io.IOException;
  * Created by User on 17.10.2016.
  * Practice with Character streams
  */
-public class Cat {
+class Cat {
     public static void main(String[] args) {
         try(BufferedReader in = new BufferedReader(     //Wrap the FileReader with BufferedReader to get file content line-by-line
                 new FileReader("./javakurs_1/src/kulkov/lesson_3_1/some.txt"))) {
