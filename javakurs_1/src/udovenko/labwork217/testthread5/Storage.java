@@ -5,7 +5,8 @@ package udovenko.labwork217.testthread5;
  */
 public class Storage{
     private int number;
-    public boolean switcher = false;
+    public final static int MAX_VALUE = 10000;
+    //public boolean switcher = false;
 
     public int getNumber() {
         return number;

@@ -2,6 +2,7 @@ package udovenko.labwork217.testthread5;
 
 /**
  * Created by gladi on 29.09.2016.
+ * Change realise without switcher
  */
 class Counter extends Thread {
     private Storage st;
@@ -12,20 +13,17 @@ class Counter extends Thread {
 
     @Override
     public void run(){
-        int count = 0;
-        while (count <= 1000000){
-            synchronized (st) {
-                st.setNumber(count++);
-                try {
-                    while (st.switcher){
-                        st.wait();
-                    }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+        synchronized (st) {
+            try{
+                while (st.getNumber() < Storage.MAX_VALUE){
+                    st.notify();
+                    st.wait();
+                    st.setNumber(st.getNumber() + 1);
                 }
-                st.switcher = true;
-                st.notify();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+            st.notify();
         }
     }
 }
