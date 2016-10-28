@@ -15,17 +15,25 @@ public class BankTest {
     public static void main(String args[]) {
         Bank bank = new Bank(N_ACCOUNTS, INIT_BALANCE);
         List<Transfer> transfers = new ArrayList<>();
+
+        //Create and start all thread
         for (int i = 0; i < N_ACCOUNTS; i++){
             transfers.add(new Transfer(bank, i, INIT_BALANCE));
             transfers.get(i).start();
         }
+
+        //Waite 3 c
         try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
+        //Stop all thread
         for (Transfer tr: transfers){
-            tr.interrupt();
+            while (tr.isAlive()){
+                tr.interrupt();
+            }
         }
     }
 }

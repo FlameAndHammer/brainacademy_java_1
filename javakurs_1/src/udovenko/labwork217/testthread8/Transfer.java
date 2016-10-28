@@ -18,11 +18,19 @@ public class Transfer extends Thread {
     public void run(){
         Random rnd = new Random();
         int to;
-        while (!interrupted()){
-            do {
-                to = rnd.nextInt(bank.getNumberAccounts());
-            }while (to == from);
-            bank.transfer(from, to, rnd.nextInt(max));
+        try {
+                while (true){
+                    do {
+                        to = rnd.nextInt(bank.getNumberAccounts());
+                    } while (to == from);
+                    synchronized (bank) {
+                        Thread.sleep(100);
+                        bank.transfer(from, to, rnd.nextInt(max));
+                    }
+                }
+        } catch (InterruptedException e) {
+                return;
         }
+
     }
 }
