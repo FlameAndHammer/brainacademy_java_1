@@ -34,13 +34,18 @@ public class App {
         }
 
         public void run() {
-            while (!Thread.currentThread().isInterrupted()) {
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException ex) {
-                    Thread.currentThread().interrupt();
+            synchronized (app) {
+                while (!Thread.currentThread().isInterrupted()) {
+                    try {
+                        System.out.println(app.last());
+                        this.app.add();
+                        app.notify();
+                        app.wait();
+                        Thread.sleep(1000);
+                    } catch (InterruptedException ex) {
+                        Thread.currentThread().interrupt();
+                    }
                 }
-                this.app.add();
             }
         }
     }
@@ -56,17 +61,19 @@ public class App {
         }
 
         public void run() {
-            while (!Thread.currentThread().isInterrupted()) {
-                int n;
-                try {
-                    n = app.last();
-                    System.out.println(n);
+            int n;
+            synchronized (app) {
+                while (!Thread.currentThread().isInterrupted()) {
+                    try {
+                        n = app.last();
+                        app.notify();
+                        app.wait();
+                         if (n % 5 == 0)
+                         System.out.println(message);
 
-                    if (n % 5 == 0)
-                        System.out.println(message);
-
-                } catch (InterruptedException ex) {
-                    Thread.currentThread().interrupt();
+                    } catch (InterruptedException ex) {
+                        Thread.currentThread().interrupt();
+                    }
                 }
             }
         }
