@@ -3,7 +3,7 @@ package udovenko.practice.jdbc;
 /**
  * Created by gladi on 27.10.2016.
  */
-class UserDatabase {
+public class UserDatabase {
     private String name;
     private String password;
 

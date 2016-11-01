@@ -5,7 +5,7 @@ import java.sql.*;
 /**
  * Created by Александр on 26.10.2016 and gladi on 27.10.2016.
  */
-class Database {
+public class Database {
     private Connection conn;
     private String connectionURL;
     private UserDatabase user;
