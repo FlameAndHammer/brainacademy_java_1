@@ -14,6 +14,7 @@ public class MainUniver {
         db.connect();
         Connection conn_db = db.getConn();
         System.out.println(new Student("Ivan", "Ivanov", conn_db));
+        System.out.println(new Lecture("Mathematics", "Petrov", conn_db));
         db.close();
     }
 }
