@@ -14,8 +14,8 @@ CREATE TABLE `lecture` (
 );
 CREATE TABLE `register` (
     `reg_id` INT(5) NOT NULL AUTO_INCREMENT,
-    `date` DATE NOT NULL,
+    `date_lec` DATE NOT NULL,
     `lecture` INT(5) NOT NULL,
     `student` INT(5) NOT NULL,
-    PRIMARY KEY (`reg_id`)
-);
+    PRIMARY KEY (`reg_id`),
+    CONSTRAINT uniq_lec UNIQUE (date_lec , lecture , student));

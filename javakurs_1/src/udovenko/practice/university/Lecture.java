@@ -8,15 +8,16 @@ import java.sql.Statement;
 /**
  * Created by gladi on 01.11.2016.
  */
-class Lecture {
+class Lecture implements DatabaseObject {
     private int lcId;
     private String name;
     private String lNameLect;
+    private Connection connection;
 
-    public Lecture(String name, String lNameLect, Connection conn) {
+    public Lecture(String name, String lNameLect, Connection connection) {
         this.name = name;
         this.lNameLect = lNameLect;
-        addBase(conn);
+        this.connection = connection;
     }
 
     @Override
@@ -24,13 +25,15 @@ class Lecture {
         return lcId + " " + name + " " + lNameLect;
     }
 
-    private void addBase(Connection conn){
-        try (Statement st = conn.createStatement()){
-            String string = String.format("INSERT INTO lecture (name, lname_lect) VALUES ('%s', '%s');", this.name, this.lNameLect);
-            st.executeUpdate(string, Statement.RETURN_GENERATED_KEYS);
-            ResultSet rs = st.getGeneratedKeys();
-            rs.first();
-            this.lcId = rs.getInt(1);
+
+    @Override
+    public void addBase() {
+        try (Statement stmt = connection.createStatement()){
+            String str = String.format("INSERT INTO lecture (name, lname_lect) VALUES ('%s', '%s')", name, lNameLect);
+            stmt.executeUpdate(str, Statement.RETURN_GENERATED_KEYS);
+            ResultSet rst = stmt.getGeneratedKeys();
+            rst.first();
+            lcId = rst.getInt(1);
         } catch (SQLException e) {
             e.printStackTrace();
         }

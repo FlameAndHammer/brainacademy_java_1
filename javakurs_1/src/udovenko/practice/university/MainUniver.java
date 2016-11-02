@@ -2,7 +2,7 @@ package udovenko.practice.university;
 
 import udovenko.practice.jdbc.Database;
 
-import java.sql.Connection;
+import java.sql.*;
 
 /**
  * Created by gladi on 01.11.2016.
@@ -13,8 +13,16 @@ public class MainUniver {
         Database db = new Database(URL_CONNECTION, "sql7142570", "IhFJ7Auv7Z");
         db.connect();
         Connection conn_db = db.getConn();
-        System.out.println(new Student("Ivan", "Ivanov", conn_db));
-        System.out.println(new Lecture("Mathematics", "Petrov", conn_db));
+        Register register = new Register(Date.valueOf("2016-11-2"), 2, 1, conn_db);
+        System.out.println(register);
+        try {
+            register.addBase();
+        }catch (SQLIntegrityConstraintViolationException sqle){
+            System.out.println("Duplicate entry");
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        System.out.println(register);
         db.close();
     }
 }
