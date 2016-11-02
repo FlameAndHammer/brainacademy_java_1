@@ -12,5 +12,6 @@ class MyApplication extends JFrame {
         setSize(300, 200);
         setLocation(100,100);
         setVisible(true);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 }
