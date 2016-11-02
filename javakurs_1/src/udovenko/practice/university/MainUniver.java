@@ -13,6 +13,10 @@ public class MainUniver {
         Database db = new Database(URL_CONNECTION, "sql7142570", "IhFJ7Auv7Z");
         db.connect();
         Connection conn_db = db.getConn();
+
+        //Create new student and add to database;
+        new Student("Ivan", "Ivanov", conn_db).addBase();
+
         Register register = new Register(Date.valueOf("2016-11-2"), 2, 1, conn_db);
         System.out.println(register);
         try {
