@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
 
 /**
  * Created by gladi on 03.11.2016.
@@ -42,13 +41,13 @@ class ControlsRun extends JPanel implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        ConcurrentMap<String, String> paths = new ConcurrentHashMap<>();
+        ConcurrentHashMap<String, String> paths = new ConcurrentHashMap<>();
         paths.put("Calculator", "C:\\WINDOWS\\system32\\calc.exe");
         paths.put("Notepad", "C:\\Windows\\notepad.exe");
         paths.put("SnippingTool", "C:\\Windows\\System32\\SnippingTool.exe");
         paths.put("Paint", "C:\\Windows\\System32\\mspaint.exe");
         try {
-            Runtime.getRuntime().exec(paths.get((String) programs.getSelectedItem()));
+            Runtime.getRuntime().exec(paths.get(programs.getSelectedItem()));
         } catch (IOException e1) {
             e1.printStackTrace();
         }
