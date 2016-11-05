@@ -1,7 +1,6 @@
-package torba.L_3_1;
+package torba.Lab_3_1;
 
 import java.io.File;
-import java.util.Arrays;
 
 public class MyFileList {
 
