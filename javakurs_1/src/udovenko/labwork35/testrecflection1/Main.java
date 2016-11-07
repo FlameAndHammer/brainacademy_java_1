@@ -48,7 +48,7 @@ public class Main {
     private static void printFields(Field[] fields) {
         for (Field elem : fields) {
             System.out.println("\tName: " + elem.getName());
-            System.out.println("\tType: " + elem.getType());
+            System.out.println("\tType: " + elem.getType().getName());
         }
     }
 
