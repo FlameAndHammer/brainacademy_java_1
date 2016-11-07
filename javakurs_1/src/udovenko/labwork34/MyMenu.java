@@ -8,8 +8,7 @@ import java.awt.event.ActionListener;
  * Created by gladi on 04.11.2016.
  */
 class MyMenu extends JMenuBar {
-    public static MyMenu createMyMenu(Action action){
-        MyMenu menuBar = new MyMenu();
+    public MyMenu (Action action){
 
         //Create menu for Lab Work 3-4-5 and disabled as default
         JMenu message = new JMenu("Message");
@@ -44,9 +43,7 @@ class MyMenu extends JMenuBar {
         labs.add(lab45);
 
         //Add menu to MenuBar
-        menuBar.add(message);
-        menuBar.add(labs);
-
-        return menuBar;
+        add(message);
+        add(labs);
     }
 }

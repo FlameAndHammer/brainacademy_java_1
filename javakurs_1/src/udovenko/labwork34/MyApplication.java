@@ -45,7 +45,7 @@ class MyApplication extends JFrame {
         MyApplication frame = new MyApplication(title);
 
         //Add MenuBar
-        frame.menuBar = MyMenu.createMyMenu(frame.changePane);
+        frame.menuBar = new MyMenu(frame.changePane);
         frame.menuBar.setOpaque(true);
         frame.setJMenuBar(frame.menuBar);
 
