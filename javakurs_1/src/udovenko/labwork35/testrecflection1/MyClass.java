@@ -3,7 +3,7 @@ package udovenko.labwork35.testrecflection1;
 /**
  * Created by gladi on 07.11.2016.
  */
-final class MyClass {
+public final class MyClass {
     private int a;
     int b;
     protected int c;
