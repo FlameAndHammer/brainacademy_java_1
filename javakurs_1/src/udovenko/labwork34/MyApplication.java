@@ -11,13 +11,13 @@ import java.util.Vector;
 class MyApplication extends JFrame {
     private Vector<JPanel> panels = new Vector<>();
     private MyMenu menuBar;
-    private Action changePane;
+    private Action changed;
 
     private MyApplication(String title) throws HeadlessException {
         super(title);
-        setLocation(100,100);
+        setLocation(250, 100);
 
-        changePane = new AbstractAction() {
+        changed = new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JMenuItem jmi = (JMenuItem) e.getSource();
@@ -44,16 +44,16 @@ class MyApplication extends JFrame {
     public static void createGUI(String title){
         MyApplication frame = new MyApplication(title);
 
-        //Add MenuBar
-        frame.menuBar = new MyMenu(frame.changePane);
-        frame.menuBar.setOpaque(true);
-        frame.setJMenuBar(frame.menuBar);
-
         //Add ContentPanes
         frame.panels.add(ControlsRun.createControlsRun());
-        frame.panels.add(new JPanel());
+        frame.panels.add(new GetResult());
         frame.panels.get(0).setOpaque(true);
         frame.setContentPane(frame.panels.get(0));
+
+        //Add MenuBar
+        frame.menuBar = new MyMenu(frame.changed, frame.panels.get(1));
+        frame.menuBar.setOpaque(true);
+        frame.setJMenuBar(frame.menuBar);
 
         //Display the window.
         frame.pack();
