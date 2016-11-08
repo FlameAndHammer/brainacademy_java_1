@@ -9,11 +9,16 @@ import java.awt.event.ActionListener;
  * Created by gladi on 08.11.2016.
  */
 class GetResult extends JPanel {
+    private JTextField result;
+
     public GetResult() {
         super(new BorderLayout());
         //LabWork 3-4-4
         createGetName();
         createGetComp();
+
+        //LabWork 3-4-5
+        createResult();
     }
 
     private void createGetName(){
@@ -50,4 +55,17 @@ class GetResult extends JPanel {
         this.add(getComp, BorderLayout.SOUTH);
     }
 
+    private void createResult(){
+        JPanel getResult = new JPanel();
+        getResult.add(new JLabel("Result"));
+
+        result = new JTextField(35);
+        getResult.add(result);
+
+        this.add(getResult, BorderLayout.CENTER);
+    }
+
+    public JTextField getResult() {
+        return result;
+    }
 }
