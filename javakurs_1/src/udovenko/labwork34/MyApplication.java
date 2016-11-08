@@ -51,7 +51,7 @@ class MyApplication extends JFrame {
 
         //Add ContentPanes
         frame.panels.add(ControlsRun.createControlsRun());
-        frame.panels.add(new JPanel());
+        frame.panels.add(new GetResult());
         frame.panels.get(0).setOpaque(true);
         frame.setContentPane(frame.panels.get(0));
 
