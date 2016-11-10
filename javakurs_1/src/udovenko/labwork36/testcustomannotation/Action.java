@@ -66,7 +66,7 @@ class Action {
     }
 
     private String readFromFile(){
-        StringBuffer stringBuffer = null;
+        StringBuffer stringBuffer = new StringBuffer();
         String line;
         try {
             FILE.createNewFile();
