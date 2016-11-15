@@ -39,7 +39,12 @@ public class Main {
         System.out.println("Sorted array in the revers alphabetical order: " + strings);
 
         //Labwork 3-7-2
-        System.out.println("Strings that start from 'T': " + printJStr(strings, s -> s.startsWith("T")));
+        System.out.print("Strings that start from 'T': " );
+        printJStr(strings, s -> s.startsWith("T"));
+
+        //Labwork 3-7-3
+        strings.forEach(s -> System.out.println(updateList(s)));
+
     }
 
     //Labwork 3-7-2
@@ -54,15 +59,18 @@ public class Main {
     }
 
     //Labwork 3-7-2
-    private static String printJStr(List<String> list, Predicate<String> filter){
-        StringBuilder stBuilder = new StringBuilder("[");
+    private static void printJStr(List<String> list, Predicate<String> filter){
+        List<String> result = new ArrayList<>();
         for (String el: list){
-            if (filter.test(el)){
-                stBuilder.append(el + ", ");
-            }
+            if (filter.test(el))
+                result.add(el);
         }
-        stBuilder.delete(stBuilder.length() - 2, stBuilder.length());
-        stBuilder.append("]");
-        return stBuilder.toString();
+        System.out.println(result);
+    }
+
+    //Labwork 3-7-3
+    private static String updateList(String string){
+        MyConverter converter = s -> !MyConverter.isNull(s) ? s.toUpperCase() : null;
+        return converter.convertStr(string);
     }
 }
