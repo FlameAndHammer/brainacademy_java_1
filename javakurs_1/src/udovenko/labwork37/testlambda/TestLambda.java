@@ -10,7 +10,7 @@ import java.util.function.Predicate;
 /**
  * Created by gladi on 15.11.2016.
  */
-public class Main {
+public class TestLambda {
     public static void main(String[] args) {
         Integer[] array = new Integer[10];
         for (int i = 0; i < 10; i++){
